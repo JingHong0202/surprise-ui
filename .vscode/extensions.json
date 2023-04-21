@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "zixuanchen.vitest-explorer",
+    "ms-vscode.vscode-typescript-next",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}

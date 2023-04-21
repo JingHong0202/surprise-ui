@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "declaration": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "allowJs": true,
+    "paths": {
+      "@ui/*": ["./package/ui/*"]
+    },
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": "types",
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules", "*.config", "dist", "tests"],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
