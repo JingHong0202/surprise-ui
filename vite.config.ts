@@ -10,18 +10,16 @@ export default defineConfig({
   build: {
     cssCodeSplit: false,
     lib: {
-      // Could also be a dictionary or array of multiple entry points
       entry: 'package/ui/index.ts',
       name: 'my-library',
       formats: ['es', 'cjs', 'umd'],
       fileName: format => `index.${format}.js`
     },
     rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
       external: ['vue'],
       output: {
-        globals: { vue: 'Vue' }
+        globals: { vue: 'Vue' },
+        exports: "named"
       }
     }
   }

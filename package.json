@@ -3,18 +3,20 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
   "types": "./types",
   "scripts": {
     "build": "vite build",
+    "dev": "vite build --watch",
     "build:ts": "tsup",
     "build:type": "tsup --dts-only --outDir=types",
-    "dev": "tsup --watch",
     "lint": "eslint . --fix",
     "test": "vitest run",
     "format": "set NODE_OPTIONS='--experimental-json-modules' && ts-node --esm ./scripts/format.mts",
     "prepare": "husky install",
     "clean": "rimraf ./dist"
   },
+  "sideEffects": false,
   "author": "jinghong",
   "license": "MIT",
   "devDependencies": {

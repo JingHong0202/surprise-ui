@@ -1,9 +1,12 @@
-import Test from './src/test.vue';
+import { default as t } from './src/test.vue';
 import type { App, Component } from 'vue';
 
-Test.name = 'TEST';
-Test.install = (app: App) => {
-  app.component(<string>Test.name, <Component>Test);
+const install = () => {
+  t.install = (app: App) => {
+    console.log(app, t)
+    app.component(<string>t.name, <Component>t);
+  };
+  return t;
 };
 
-export { Test };
+export const Test = install();
