@@ -1,6 +1,6 @@
 {
   "name": "surprise-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "dist/index.es.js",
   "module": "es/index.js",
@@ -18,7 +18,7 @@
     "lint-staged": "lint-staged",
     "commit": "cz",
     "changelog": "standard-changelog",
-    "release": "standard-version"
+    "release": "standard-version --no-verify"
   },
   "packageManager": "pnpm@7.28.0",
   "sideEffects": false,
@@ -40,7 +40,6 @@
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "7.0.0",
     "eslint": "^8.38.0",
-    "husky": "^8.0.3",
     "inquirer": "^9.1.5",
     "lint-staged": "^13.2.1",
     "postcss": "^8.4.23",
