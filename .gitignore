@@ -26,3 +26,4 @@ dist-ssr
 *.sw?
 .DS_Store
 __snapshots__
+es

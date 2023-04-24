@@ -2,8 +2,8 @@
   <div>test</div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 defineOptions({
-  name: "Test"
+  name: 'Test'
 });
 </script>

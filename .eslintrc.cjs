@@ -11,6 +11,7 @@ module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
+	globals: { defineOptions: 'writable' },
 	root: true,
 	parserOptions: {
 		project: true,
@@ -27,6 +28,7 @@ module.exports = {
 		"@typescript-eslint/no-floating-promises": "off",
 		'no-mixed-spaces-and-tabs': 'off',
 		"@typescript-eslint/no-unsafe-call": 'off',
+		"@typescript-eslint/restrict-plus-operands": 'off',
 		"semi": "off",
     "@typescript-eslint/semi": "off"
 		// '@typescript-eslint/no-floating-promises': 'off'

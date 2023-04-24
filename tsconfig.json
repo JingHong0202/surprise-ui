@@ -8,8 +8,9 @@
     "inlineSources": true,
     "allowJs": true,
     "paths": {
-      "@ui/*": ["./package/ui/*"]
+      "@ui/*": ["./packages/ui/*"]
     },
+    "types": ["unplugin-vue-define-options/macros-global", "@types/node"],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "declarationDir": "types",

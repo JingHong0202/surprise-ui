@@ -1,31 +1,34 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import legacy from '@vitejs/plugin-legacy';
 import path from 'node:path';
+// @ts-ignore
+import DefineOptions from 'unplugin-vue-define-options/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vueJsx(), vue()],
+  plugins: [vueJsx(), vue(), DefineOptions()],
   build: {
-    cssCodeSplit: false,
-    lib: {
-      entry: 'package/ui/index.ts',
-      name: 'my-library',
-      formats: ['es', 'cjs', 'umd'],
-      fileName: format => `index.${format}.js`
-    },
+    target: 'esnext',
+    outDir: 'es',
+    // emptyOutDir: true,
+    minify: true,
     rollupOptions: {
-      external: ['vue'],
       output: {
-        globals: { vue: 'Vue' },
-        exports: "named"
-      }
+        entryFileNames: '[name].js',
+        preserveModules: true,
+        preserveModulesRoot: './packages/ui'
+      },
+      external: ['vue']
+    },
+    lib: {
+      entry: './packages/ui',
+      formats: ['es']
     }
+  },
+  resolve: {
+    alias: [
+      { find: '@ui', replacement: path.resolve(__dirname, './packages/ui') }
+    ]
   }
-  // resolve: {
-  //   alias: {
-  //     '@': path.resolve(__dirname, 'src')
-  //   }
-  // }
 });

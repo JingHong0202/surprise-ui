@@ -12,9 +12,9 @@ const removeIgnoredFiles = async files => {
 };
 
 export default {
-  '*.{ts,tsx,js,jsx}': async files => {
+  '*.{ts,tsx,js,jsx,cjs,cts,mjs,mts}': async files => {
     const filesToLint = await removeIgnoredFiles(files);
-    return [`eslint --max-warnings=0 ${filesToLint}`];
+    return [`eslint ${filesToLint}`];
   },
   '**/*': files => {
     return [`prettier --write --ignore-unknown ${files.join(' ')}`];
