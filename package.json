@@ -13,7 +13,7 @@
     "lint": "eslint . --fix",
     "test": "vitest run",
     "format": "set NODE_OPTIONS='--experimental-json-modules' && ts-node --esm ./scripts/format.mts",
-    "prepare": "husky install",
+    "prepare": "simple-git-hooks",
     "clean": "rimraf ./dist",
     "lint-staged": "lint-staged",
     "commit": "cz",
@@ -47,6 +47,7 @@
     "prettier": "^2.8.7",
     "rimraf": "^5.0.0",
     "sass": "^1.62.0",
+    "simple-git-hooks": "^2.8.1",
     "standard-changelog": "^2.0.27",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
@@ -76,6 +77,10 @@
     "types",
     "es"
   ],
+  "simple-git-hooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --edit $1 --config commitlint.config.ts"
+  },
   "engines": {
     "node": ">=14.0.0"
   }
