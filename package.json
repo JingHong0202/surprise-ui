@@ -1,6 +1,6 @@
 {
   "name": "surprise-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/index.es.js",
   "module": "es/index.js",
@@ -61,6 +61,11 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-customizable"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
     }
   },
   "peerDependencies": {
