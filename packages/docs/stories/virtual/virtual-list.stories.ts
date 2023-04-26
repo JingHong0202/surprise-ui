@@ -21,7 +21,6 @@ const meta: Meta<typeof verticalVirtualList> = {
     },
     data: {
       description: '渲染数据数组',
-      type: { name: 'object', required: true },
       defaultValue: { summary: '[]' }
     },
     keyName: {
