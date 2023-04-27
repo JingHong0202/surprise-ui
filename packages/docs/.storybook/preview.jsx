@@ -13,16 +13,16 @@ import {
 
 const preview = {
   parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Stories />
-        </>
-      )
-    },
+    // docs: {
+    //   page: () => (
+    //     <>
+    //       <Title />
+    //       <Subtitle />
+    //       <Description />
+    //       <Stories />
+    //     </>
+    //   )
+    // },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
