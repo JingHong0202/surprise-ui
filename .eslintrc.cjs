@@ -30,7 +30,8 @@ module.exports = {
 		"@typescript-eslint/no-unsafe-call": 'off',
 		"@typescript-eslint/restrict-plus-operands": 'off',
 		"semi": "off",
-    "@typescript-eslint/semi": "off"
+    "@typescript-eslint/semi": "off",
+		"@typescript-eslint/restrict-template-expressions": "off"
 		// '@typescript-eslint/no-floating-promises': 'off'
 	}
 }

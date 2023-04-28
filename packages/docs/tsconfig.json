@@ -8,7 +8,10 @@
     "inlineSources": true,
     "allowJs": true,
     "paths": {
-      "@ui/*": ["./packages/ui/*"]
+      "@ui/*": ["../ui/*"],
+      "@packages/*": ["../*"],
+      "@docs/*": ["../docs/*"],
+      "@root/*": ["../../*"]
     },
     "types": ["unplugin-vue-define-options/macros-global", "@types/node"],
     "outDir": "./dist",

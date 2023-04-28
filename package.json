@@ -30,6 +30,7 @@
     "@commitlint/types": "^17.4.4",
     "@types/inquirer": "^9.0.3",
     "@types/node": "^18.15.11",
+    "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "@vitejs/plugin-legacy": "^4.0.2",

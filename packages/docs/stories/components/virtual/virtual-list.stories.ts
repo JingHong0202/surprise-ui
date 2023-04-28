@@ -1,123 +1,127 @@
-// import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-// import { verticalVirtualList } from '@ui/components/virtual-list';
-// import 'surprise-ui/es/style.css';
-// import { formattedTemplate } from '@root/packages/utils/index.ts';
-// // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
-// const data = buildData();
+import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
+import {
+  verticalVirtualList,
+  verticalVirtualListType,
+  horizonetalVirtualList,
+  horizonetalVirtualListType
+} from '@ui/components/virtual-list';
+import 'surprise-ui/es/style.css';
+import { formattedTemplate } from '@packages/utils/index';
 
-// const code = await formattedTemplate(`
-//   <template>
-//     <vertical-virtual-list :itemSize="100" :data="data" keyName="id">
-//       <template #="{ slotScope }">
-//         <div v-text="slotScope.name" style="height: 100px"/>
-//       </template>
-//     </vertical-virtual-list>
-//   </template>
+const data = buildData();
+const verticalCode = await formattedTemplate(`
+  <template>
+    <vertical-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
+      <div v-text="slotScope.name" style="height: 100px"/>
+    </vertical-virtual-list>
+  </template>
 
-//   <script setup>
-//   const data = ${JSON.stringify(data)}
-//   </script>
-//   `);
+  <script setup>
+  const data = ${JSON.stringify(data, null, 2)}
+  </script>`),
+  horizonetalCode = await formattedTemplate(`
+  <template>
+    <horizonetal-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
+      <div v-text="slotScope.name" style="height: 100%;width:100px"/>
+    </horizonetal-virtual-list>
+  </template>
 
-// const meta: Meta<typeof verticalVirtualList> = {
-//   title: 'components/virtual-list',
-//   component: verticalVirtualList,
-//   tags: ['autodocs'],
-//   decorators: [
-//     () => ({ template: '<div style="height:100vh;width:100%"><story/></div>' })
-//   ],
-//   argTypes: {
-//     itemSize: {
-//       type: { name: 'number', required: true },
-//       description: '列表子元素大小',
-//       defaultValue: { summary: 0 }
-//     },
-//     buffer: {
-//       type: { name: 'number' },
-//       description: '列表滚动缓存，减少滚动空白',
-//       defaultValue: { summary: 0 }
-//     },
-//     data: {
-//       description: '渲染数据数组',
-//       defaultValue: { summary: '[]' }
-//     },
-//     keyName: {
-//       type: { name: 'string', required: true },
-//       description: '渲染数据数组key,相当于v-for key',
-//       defaultValue: { summary: '' }
-//     }
-//   }
-// };
-// export default meta;
-// type Story = StoryObj<typeof verticalVirtualList>;
-// // More on writing stories with args: https://storybook.js.org/docs/vue/writing-stories/args
+  <script setup>
+  const data = ${JSON.stringify(data, null, 2)}
+  </script>`);
 
-// function buildData() {
-//   const res = [];
-//   for (let index = 0; index < 50; index++) {
-//     res.push({ id: index, name: index });
-//   }
-//   return res;
-// }
+const meta: Meta = {
+  title: 'components/virtual-list',
+  component: verticalVirtualListType,
+  tags: ['autodocs'],
 
-// const vertical: Story = {
-//   render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
-//     components: { verticalVirtualList },
-//     props: Object.keys(argTypes),
-//     template: `<vertical-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName"><template v-if=${
-//       'default' in args
-//     } v-slot="{ slotScope }">${args.default}</vertical-virtual-list>
-//   `
-//   }),
-//   args: {
-//     itemSize: 100,
-//     data: data,
-//     keyName: 'id',
-//     buffer: 0
-//   },
-//   parameters: {
-//     docs: {
-//       source: {
-//         // code
-//       }
-//     }
-//   }
-// };
+  argTypes: {
+    itemSize: {
+      type: { name: 'number', required: true },
+      description: '列表子元素大小',
+      defaultValue: { summary: 0 }
+    },
+    buffer: {
+      type: { name: 'number' },
+      description: '列表滚动缓存，减少滚动空白',
+      defaultValue: { summary: 0 }
+    },
+    data: {
+      description: '渲染数据数组',
+      defaultValue: { summary: '[]' }
+    },
+    keyName: {
+      type: { name: 'string', required: true },
+      description: '设置数据 v-for key',
+      defaultValue: { summary: '' }
+    },
+    default: {
+      description: '子元素插槽',
+      type: { name: 'other', value: 'string', required: true }
+    }
+  }
+};
+export default meta;
+function buildData() {
+  const res = [];
+  for (let index = 0; index < 50; index++) {
+    res.push({ id: index, name: index });
+  }
+  return res;
+}
 
-// const template = (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
-//   components: { verticalVirtualList },
-//   props: Object.keys(argTypes),
-//   template: `<vertical-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName"><template v-if=${
-//     'default' in args
-//   } v-slot="{ slotScope }">${args.default}</vertical-virtual-list>
-//   `
-// });
+export const vertical: StoryObj<typeof verticalVirtualListType> = {
+  render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
+    components: { verticalVirtualList },
+    props: Object.keys(argTypes),
+    template: `
+    <vertical-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName" v-slot="{ slotScope }">
+      ${args.default}
+    </vertical-virtual-list>`
+  }),
+  decorators: [
+    () => ({ template: '<div style="height:50vh;width:100%"><story/></div>' })
+  ],
+  args: {
+    itemSize: 100,
+    data: data,
+    keyName: 'id',
+    buffer: 0,
+    default: `<div v-text="slotScope.name" style="height: 100px"/>`
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: verticalCode
+      }
+    }
+  }
+};
 
-// export const WithDefaultSlotContent = template.bind({});
-// WithDefaultSlotContent.args = {
-//   default: `<div v-text="slotScope.name" style="height: 100px"/>`,
-//   itemSize: 100,
-//   data: data,
-//   keyName: 'id',
-//   buffer: 0
-// };
-
-// // export const Secondary = {
-// //   args: {
-// //     label: 'Button'
-// //   }
-// // };
-
-// // export const Large = {
-// //   args: {
-// //     size: 'large',
-// //     label: 'Button'
-// //   }
-// // };
-
-// // export const Small = {
-// //   args: {
-// //     size: 'small',
-// //     label: 'Button'
-// //   }
-// // };
+export const horizonetal: StoryObj<typeof horizonetalVirtualListType> = {
+  render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
+    components: { horizonetalVirtualList },
+    props: Object.keys(argTypes),
+    template: `
+    <horizonetal-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName" v-slot="{ slotScope }">
+      ${args.default}
+    </horizonetal-virtual-list>`
+  }),
+  decorators: [
+    () => ({ template: '<div style="height:30vh;"><story/></div>' })
+  ],
+  args: {
+    itemSize: 100,
+    data: data,
+    keyName: 'id',
+    buffer: 0,
+    default: `<div v-text="slotScope.name" style="height: 100%;width:100px"/>`
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: horizonetalCode
+      }
+    }
+  }
+};

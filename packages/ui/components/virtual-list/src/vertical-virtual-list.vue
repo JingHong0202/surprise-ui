@@ -27,7 +27,7 @@ import { useVirtualList } from './composable/useVirtualList';
 export type VirtualPropType = {
   data: any[];
   itemSize: number;
-  buffer: number;
+  buffer?: number;
   keyName: string;
 };
 

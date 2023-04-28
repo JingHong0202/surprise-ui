@@ -4,3 +4,5 @@ import { compInstall } from '@ui/utils/export';
 import type { Plugin } from 'vue';
 export const horizonetalVirtualList = compInstall(horizonetalVirtualListVue);
 export const verticalVirtualList = compInstall(verticalVirtualListVue);
+export const horizonetalVirtualListType = horizonetalVirtualListVue;
+export const verticalVirtualListType = verticalVirtualListVue;
