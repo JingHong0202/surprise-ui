@@ -1,8 +1,6 @@
-export const formattedTemplate = async (code: string) => {
-  const prettier = await import('prettier/standalone');
-  const prettierHtml = await import('prettier/parser-html');
-
-  // emits an event  when the transformation is completed
+import prettier from 'prettier/standalone';
+import prettierHtml from 'prettier/parser-html';
+export const formattedTemplate = (code: string) => {
   return prettier.format(code, {
     parser: 'vue',
     plugins: [prettierHtml],

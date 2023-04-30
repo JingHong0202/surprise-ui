@@ -11,9 +11,14 @@
       "@ui/*": ["../ui/*"],
       "@packages/*": ["../*"],
       "@docs/*": ["../docs/*"],
-      "@root/*": ["../../*"]
+      "@root/*": ["../../*"],
+      "react": ["./node_modules/@types/react"]
     },
-    "types": ["unplugin-vue-define-options/macros-global", "@types/node"],
+    "types": [
+      "unplugin-vue-define-options/macros-global",
+      "@types/node",
+      "@types/react"
+    ],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "declarationDir": "types",

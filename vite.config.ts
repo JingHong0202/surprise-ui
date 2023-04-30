@@ -28,7 +28,19 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      { find: '@ui', replacement: path.resolve(__dirname, './packages/ui') }
+      { find: '@ui', replacement: path.resolve(__dirname, './packages/ui') },
+      {
+        find: '@packages',
+        replacement: path.resolve(__dirname, './packages')
+      },
+      {
+        find: '@docs',
+        replacement: path.resolve(__dirname, './packages/docs')
+      },
+      {
+        find: '@root',
+        replacement: path.resolve(__dirname, './')
+      }
     ]
   }
 });

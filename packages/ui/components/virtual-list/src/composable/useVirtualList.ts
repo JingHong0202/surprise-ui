@@ -1,5 +1,5 @@
 import { Ref, computed, nextTick, onUpdated, ref, watchEffect } from 'vue';
-import type { VirtualPropType } from '../vertical-virtual-list.vue';
+import type { VirtualPropType } from '../common/virtual-list';
 
 type UseVirtualListArgs = {
   props: VirtualPropType;
@@ -36,24 +36,27 @@ export function useVirtualList({
       );
     }),
     visibleCount = computed(() => {
-      return Math.ceil((wrapElement.value?.clientHeight ?? 0) / props.itemSize);
+      const containerSpace =
+        wrapElement.value?.[
+          mode === 'vertical' ? 'clientHeight' : 'clientWidth'
+        ] ?? 0;
+      return Math.ceil(containerSpace / props.itemSize);
     }),
     aboveCount = computed(() => {
       return Math.min(
         startIndex.value,
-        Math.round(props.buffer * visibleCount.value)
+        Math.round(props.buffer! * visibleCount.value)
       );
     }),
     belowCount = computed(() => {
       return Math.min(
         _data.value.length - endIndex.value,
-        Math.round(props.buffer * visibleCount.value)
+        Math.round(props.buffer! * visibleCount.value)
       );
     }),
     visibleData = computed(() => {
       const start = startIndex.value - aboveCount.value,
         end = endIndex.value + belowCount.value;
-      // console.log(start, end)
       return _data.value.slice(start, end + 1);
     }),
     startIndex = ref(0),

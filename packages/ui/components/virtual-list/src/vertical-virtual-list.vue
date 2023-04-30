@@ -14,6 +14,9 @@
         v-for="item in visibleData"
         :_id="item.__index"
         :key="item[props.keyName]">
+        <!-- 
+          @slot 列表子元素插槽，slotScope 获取当前条目
+         -->
         <slot :slotScope="item" />
       </div>
     </div>
@@ -23,19 +26,26 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useVirtualList } from './composable/useVirtualList';
+import { binarySearch } from './common/utils';
 
-export type VirtualPropType = {
-  data: any[];
-  itemSize: number;
-  buffer?: number;
-  keyName: string;
-};
-
-const props = withDefaults(defineProps<VirtualPropType>(), {
-  itemSize: 0,
-  buffer: 0,
-  keyName: ''
-});
+const props = withDefaults(
+  defineProps<{
+    /** 渲染数据数组 */
+    data: any[];
+    /** 子元素大小 */
+    itemSize: number;
+    /** 列表缓存，减少滚动太快出现空白 */
+    buffer?: number;
+    /** 设置数据 v-for key */
+    keyName: string;
+  }>(),
+  {
+    itemSize: 0,
+    buffer: 0,
+    keyName: '',
+    data: () => []
+  }
+);
 const wrap = ref<HTMLDivElement>(),
   { _data, visibleData, startIndex, startOffset, placeholderHeight } =
     useVirtualList({ props, wrapElement: wrap });
@@ -52,32 +62,12 @@ defineOptions({
 
 function wrapScrollHandler() {
   const scrollTop = wrap.value!.scrollTop;
-  startIndex.value = binarySearch(_data.value, scrollTop);
+  startIndex.value = binarySearch(_data.value, scrollTop, 'vertical');
 }
 
 function reset() {
   startIndex.value = 0;
   wrap.value?.scroll({ top: 0, left: 0 });
-}
-function binarySearch(searchList: any[], findVal: number) {
-  let start = 0,
-    end = searchList.length - 1,
-    tempIndex = null;
-
-  while (start <= end) {
-    const mid = start + ((end - start) >> 1);
-    if (searchList[mid].__bottom > findVal) {
-      if (tempIndex === null || tempIndex > mid) {
-        tempIndex = mid;
-      }
-      end = mid - 1;
-    } else if (searchList[mid].__bottom < findVal) {
-      start = mid + 1;
-    } else if (searchList[mid].__bottom === findVal) {
-      return searchList[mid].__index + 1;
-    }
-  }
-  return tempIndex;
 }
 </script>
 

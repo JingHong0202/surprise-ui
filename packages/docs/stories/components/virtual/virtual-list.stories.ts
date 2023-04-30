@@ -5,24 +5,23 @@ import {
   horizonetalVirtualList,
   horizonetalVirtualListType
 } from '@ui/components/virtual-list';
-import 'surprise-ui/es/style.css';
 import { formattedTemplate } from '@packages/utils/index';
 
 const data = buildData();
-const verticalCode = await formattedTemplate(`
+const verticalCode = formattedTemplate(`
   <template>
     <vertical-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
-      <div v-text="slotScope.name" style="height: 100px"/>
+      <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
     </vertical-virtual-list>
   </template>
 
   <script setup>
   const data = ${JSON.stringify(data, null, 2)}
   </script>`),
-  horizonetalCode = await formattedTemplate(`
+  horizonetalCode = formattedTemplate(`
   <template>
     <horizonetal-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
-      <div v-text="slotScope.name" style="height: 100%;width:100px"/>
+      <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
     </horizonetal-virtual-list>
   </template>
 
@@ -33,33 +32,7 @@ const verticalCode = await formattedTemplate(`
 const meta: Meta = {
   title: 'components/virtual-list',
   component: verticalVirtualListType,
-  tags: ['autodocs'],
-
-  argTypes: {
-    itemSize: {
-      type: { name: 'number', required: true },
-      description: '列表子元素大小',
-      defaultValue: { summary: 0 }
-    },
-    buffer: {
-      type: { name: 'number' },
-      description: '列表滚动缓存，减少滚动空白',
-      defaultValue: { summary: 0 }
-    },
-    data: {
-      description: '渲染数据数组',
-      defaultValue: { summary: '[]' }
-    },
-    keyName: {
-      type: { name: 'string', required: true },
-      description: '设置数据 v-for key',
-      defaultValue: { summary: '' }
-    },
-    default: {
-      description: '子元素插槽',
-      type: { name: 'other', value: 'string', required: true }
-    }
-  }
+  tags: ['autodocs']
 };
 export default meta;
 function buildData() {
@@ -80,14 +53,14 @@ export const vertical: StoryObj<typeof verticalVirtualListType> = {
     </vertical-virtual-list>`
   }),
   decorators: [
-    () => ({ template: '<div style="height:50vh;width:100%"><story/></div>' })
+    () => ({ template: '<div style="height:100vh;width:100%"><story/></div>' })
   ],
   args: {
     itemSize: 100,
     data: data,
     keyName: 'id',
     buffer: 0,
-    default: `<div v-text="slotScope.name" style="height: 100px"/>`
+    default: `<div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>`
   },
   parameters: {
     docs: {
@@ -108,14 +81,14 @@ export const horizonetal: StoryObj<typeof horizonetalVirtualListType> = {
     </horizonetal-virtual-list>`
   }),
   decorators: [
-    () => ({ template: '<div style="height:30vh;"><story/></div>' })
+    () => ({ template: '<div style="height:100vh;width:100%"><story/></div>' })
   ],
   args: {
     itemSize: 100,
     data: data,
     keyName: 'id',
     buffer: 0,
-    default: `<div v-text="slotScope.name" style="height: 100%;width:100px"/>`
+    default: `<div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>`
   },
   parameters: {
     docs: {
