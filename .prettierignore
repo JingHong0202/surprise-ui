@@ -2,3 +2,6 @@ dist
 node_modules
 .*
 !.storybook
+surprise-docs
+types
+pnpm-*.yaml

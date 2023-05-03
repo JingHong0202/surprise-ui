@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process';
-import log from '../utils/logger.mts';
+import log from './logger.mjs';
 import inquirer from 'inquirer';
 
 // console.log(process.argv)

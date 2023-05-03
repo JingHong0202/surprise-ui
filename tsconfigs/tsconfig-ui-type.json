@@ -1,0 +1,12 @@
+{
+  "extends": ["../tsconfig.json"],
+  "compilerOptions": {
+    "declarationDir": "../types",
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true
+  },
+  "typeAcquisition": {
+    "enable": true
+  },
+  "exclude": ["../scripts", "../packages/docs", "../tests", "../*.config.ts"]
+}

@@ -6,29 +6,27 @@
     "declaration": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "allowJs": true,
     "paths": {
       "@ui/*": ["./packages/ui/*"],
       "@packages/*": ["./packages/*"],
       "@docs/*": ["./packages/docs/*"],
       "@root/*": ["./*"]
     },
-    "types": ["unplugin-vue-define-options/macros-global", "@types/node"],
+    "types": [
+      "unplugin-vue-define-options/macros-global",
+      "@types/node",
+      "vite/client"
+    ],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
-    "declarationDir": "types",
-    "emitDeclarationOnly": true,
     "resolveJsonModule": true,
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "removeComments": true
+    "typeRoots": ["./node_modules/@types/", "./types"]
   },
   "include": ["**/*"],
-  "exclude": ["node_modules", "*.config", "dist", "tests"],
-  "typeAcquisition": {
-    "enable": true
-  }
+  "exclude": ["node_modules", "dist", "packages/docs"]
 }

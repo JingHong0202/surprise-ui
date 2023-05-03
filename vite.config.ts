@@ -10,20 +10,38 @@ export default defineConfig({
   plugins: [vueJsx(), vue(), DefineOptions()],
   build: {
     target: 'esnext',
-    outDir: 'es',
     // emptyOutDir: true,
     minify: true,
-    rollupOptions: {
-      output: {
-        entryFileNames: '[name].js',
-        preserveModules: true,
-        preserveModulesRoot: './packages/ui'
-      },
-      external: ['vue']
-    },
     lib: {
-      entry: './packages/ui',
-      formats: ['es']
+      entry: './packages/ui'
+    },
+    rollupOptions: {
+      output: [
+        {
+          entryFileNames: '[name].mjs',
+          preserveModules: true,
+          preserveModulesRoot: './packages/ui',
+          format: 'es',
+          dir: 'dist/es'
+        },
+        {
+          entryFileNames: 'index.umd.js',
+          format: 'umd',
+          name: 'surprise_ui',
+          dir: 'dist',
+          exports: 'named',
+          globals: {
+            vue: 'Vue'
+          }
+        },
+        {
+          entryFileNames: 'index.cjs',
+          format: 'cjs',
+          dir: 'dist',
+          exports: 'named'
+        }
+      ],
+      external: ['vue']
     }
   },
   resolve: {
