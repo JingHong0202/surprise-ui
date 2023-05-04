@@ -29,7 +29,8 @@
     "lint-staged": "lint-staged",
     "commit": "cz",
     "changelog": "standard-changelog",
-    "release": "standard-version --no-verify"
+    "release": "standard-version --no-verify",
+    "gen": "tsx ./scripts/generate.ts"
   },
   "packageManager": "pnpm@7.28.0",
   "sideEffects": false,

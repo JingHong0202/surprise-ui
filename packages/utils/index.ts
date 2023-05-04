@@ -1,9 +1,17 @@
 import prettier from 'prettier/standalone';
 import prettierHtml from 'prettier/parser-html';
-export const formattedTemplate = (code: string) => {
+import parsetTypeScript from 'prettier/parser-typescript';
+
+export const formattedVueTemplate = (code: string) => {
   return prettier.format(code, {
     parser: 'vue',
-    plugins: [prettierHtml],
-    htmlWhitespaceSensitivity: 'ignore'
+    plugins: [prettierHtml]
+  });
+};
+
+export const formattedTS = (code: string) => {
+  return prettier.format(code, {
+    parser: 'typescript',
+    plugins: [parsetTypeScript]
   });
 };

@@ -5,10 +5,10 @@ import {
   horizonetalVirtualList,
   horizonetalVirtualListType
 } from '@ui/components/virtual-list';
-import { formattedTemplate } from '@packages/utils/index';
+import { formattedVueTemplate } from '@packages/utils/index';
 
 const data = buildData();
-const verticalCode = formattedTemplate(`
+const verticalCode = formattedVueTemplate(`
   <template>
     <vertical-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
       <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
@@ -18,7 +18,7 @@ const verticalCode = formattedTemplate(`
   <script setup>
   const data = ${JSON.stringify(data, null, 2)}
   </script>`),
-  horizonetalCode = formattedTemplate(`
+  horizonetalCode = formattedVueTemplate(`
   <template>
     <horizonetal-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
       <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>

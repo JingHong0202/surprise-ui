@@ -12,7 +12,7 @@ const removeIgnoredFiles = async files => {
 };
 
 export default {
-  '*.{ts,tsx,js,jsx,cjs,cts,mjs,mts}': async files => {
+  '*.{ts,tsx,js,jsx,cjs,cts,mjs,mts,vue}': async files => {
     const filesToLint = await removeIgnoredFiles(files);
     return [`eslint ${filesToLint}`];
   },

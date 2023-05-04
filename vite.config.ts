@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [vueJsx(), vue(), DefineOptions()],
   build: {
     target: 'esnext',
-    // emptyOutDir: true,
+    emptyOutDir: false,
     minify: true,
     lib: {
       entry: './packages/ui'
