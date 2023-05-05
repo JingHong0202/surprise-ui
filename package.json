@@ -20,17 +20,17 @@
     "build": "vite build",
     "dev": "vite build --watch",
     "build:ts": "tsup",
-    "build:type": "vue-tsc  --declaration --emitDeclarationOnly --outDir ./types -p tsconfigs/tsconfig-ui-type.json",
+    "build:type": "rimraf ./types && vue-tsc  --declaration --emitDeclarationOnly --outDir ./types -p tsconfigs/tsconfig-ui-type.json",
     "lint": "eslint . --fix",
     "test": "vitest run",
     "format": "tsx ./scripts/format.ts",
     "prepare": "simple-git-hooks",
-    "clean": "rimraf ./dist",
     "lint-staged": "lint-staged",
     "commit": "cz",
     "changelog": "standard-changelog",
     "release": "standard-version --no-verify",
-    "gen": "tsx ./scripts/generate.ts"
+    "gen": "tsx ./scripts/generate.ts",
+    "sync": "tsx ./scripts/sync.ts"
   },
   "packageManager": "pnpm@7.28.0",
   "sideEffects": false,
@@ -68,8 +68,8 @@
     "unplugin-vue-define-options": "^1.3.3",
     "vite": "^4.3.1",
     "vitest": "^0.30.1",
-    "vue": "3.3.0-beta.2",
-    "vue-tsc": "^1.4.1"
+    "vue-tsc": "^1.4.1",
+    "vue": "^3.2.47"
   },
   "config": {
     "commitizen": {

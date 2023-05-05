@@ -1,1 +1,2 @@
-export declare const formattedTemplate: (code: string) => string;
+export declare const formattedVueTemplate: (code: string) => string;
+export declare const formattedTS: (code: string) => string;

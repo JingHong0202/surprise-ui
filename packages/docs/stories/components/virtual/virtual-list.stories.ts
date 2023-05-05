@@ -1,9 +1,9 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import {
   verticalVirtualList,
-  verticalVirtualListType,
-  horizonetalVirtualList,
-  horizonetalVirtualListType
+  // verticalVirtualListType,
+  horizonetalVirtualList
+  // horizonetalVirtualListType
 } from '@ui/components/virtual-list';
 import { formattedVueTemplate } from '@packages/utils/index';
 
@@ -31,7 +31,7 @@ const verticalCode = formattedVueTemplate(`
 
 const meta: Meta = {
   title: 'components/virtual-list',
-  component: verticalVirtualListType,
+  component: verticalVirtualList,
   tags: ['autodocs']
 };
 export default meta;
@@ -43,7 +43,7 @@ function buildData() {
   return res;
 }
 
-export const vertical: StoryObj<typeof verticalVirtualListType> = {
+export const vertical: StoryObj<typeof verticalVirtualList> = {
   render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
     components: { verticalVirtualList },
     props: Object.keys(argTypes),
@@ -71,7 +71,7 @@ export const vertical: StoryObj<typeof verticalVirtualListType> = {
   }
 };
 
-export const horizonetal: StoryObj<typeof horizonetalVirtualListType> = {
+export const horizonetal: StoryObj<typeof horizonetalVirtualList> = {
   render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
     components: { horizonetalVirtualList },
     props: Object.keys(argTypes),

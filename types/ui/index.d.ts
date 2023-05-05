@@ -1,3 +1,2 @@
-export * from './components/virtual-list';
-export * from './components/test';
+export * from './components';
 export { install as default } from './global';

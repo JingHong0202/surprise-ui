@@ -2,17 +2,28 @@ import log from './logger';
 import inquirer from 'inquirer';
 import fs from 'node:fs';
 import path from 'node:path';
+import { confirm } from './utils/prompt';
 import { formattedVueTemplate, formattedTS } from '@packages/utils';
+import { syncComponentFile } from './utils/components';
 
 const basePath = process.cwd();
+const transformHump = (str: string) =>
+  str.split('-').reduce((accumulator, current, index) => {
+    accumulator += !index
+      ? current
+      : current[0].toLocaleUpperCase() + current.slice(1);
+    return accumulator;
+  }, '');
 const vueTemplate = (component: string) =>
     formattedVueTemplate(
-      `<template>\r<div></div>\r</template>\n\n<script lang="ts" setup>defineOptions({name: '${component}'});</script>\n\n<style scoped lang="scss"></style>`
+      `<template>\r\r\r\r<div></div>\r</template>\n\n<script lang="ts" setup>defineOptions({name: '${component}'});</script>\n\n<style scoped lang="scss"></style>`
     ),
-  runTemplate = (component: string) =>
-    formattedTS(
-      `import ${component} from './src/${component}.vue';import { compInstall } from '@ui/utils/export';export const Test = compInstall(${component});`
+  runTemplate = (component: string) => {
+    const humpForm = transformHump(component);
+    return formattedTS(
+      `import { default as o } from './src/${component}.vue';import type { Plugin } from 'vue';import { compInstall } from '@ui/utils/export';export const ${humpForm} = compInstall(o);`
     );
+  };
 let args: string[];
 inquirer
   .prompt({
@@ -44,9 +55,12 @@ inquirer
       return true;
     }
   })
-  .then(() => {
-    // Use user feedback for... whatever!!
+  .then(async () => {
     createComponentFile(args);
+    await confirm(
+      '是否自动追加到 components/index.ts 文件?',
+      syncComponentFile
+    );
   })
   .catch(error => {
     if (error.isTtyError) {
@@ -58,11 +72,11 @@ inquirer
 
 function createComponentFile(componentNames: string[]) {
   componentNames.forEach(component => {
-    fs.mkdirSync(flatPath(`${basePath}/packages/ui/components/${component}`));
-    fs.mkdirSync(
-      flatPath(`${basePath}/packages/ui/components/${component}/src`)
-    );
     try {
+      fs.mkdirSync(flatPath(`${basePath}/packages/ui/components/${component}`));
+      fs.mkdirSync(
+        flatPath(`${basePath}/packages/ui/components/${component}/src`)
+      );
       fs.writeFileSync(
         flatPath(
           `${basePath}/packages/ui/components/${component}/src/${component}.vue`
@@ -71,8 +85,7 @@ function createComponentFile(componentNames: string[]) {
       );
       fs.writeFileSync(
         flatPath(`${basePath}/packages/ui/components/${component}/index.ts`),
-        runTemplate(component),
-        {}
+        runTemplate(component)
       );
     } catch (error) {
       log.error(String(error));

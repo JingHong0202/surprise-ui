@@ -36,7 +36,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     itemSize: number;
     buffer: number;
     keyName: string;
-}, {}>, {
+}>, {
     default?(_: {
         slotScope: any;
     }): any;

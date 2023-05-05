@@ -31,7 +31,8 @@ module.exports = {
 		"@typescript-eslint/restrict-plus-operands": 'off',
 		"semi": "off",
     "@typescript-eslint/semi": "off",
-		"@typescript-eslint/restrict-template-expressions": "off"
+		"@typescript-eslint/restrict-template-expressions": "off",
+		"@typescript-eslint/no-this-alias": "off"
 		// '@typescript-eslint/no-floating-promises': 'off'
 	}
 }

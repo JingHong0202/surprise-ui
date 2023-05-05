@@ -1,5 +1,4 @@
 // support Tree Shaking
-export * from './components/virtual-list';
-export * from './components/test';
+export * from './components';
 // global
 export { install as default } from './global';
