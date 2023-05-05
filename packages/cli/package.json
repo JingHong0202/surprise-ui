@@ -1,0 +1,18 @@
+{
+  "name": "surprise-cli",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/run.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "bin": {
+    "surprise-cli": "./lib/run.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^10.0.1"
+  }
+}
