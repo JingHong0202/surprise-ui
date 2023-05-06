@@ -7,6 +7,8 @@ export default defineConfig(options => {
     sourcemap: 'inline',
     clean: true,
     minify: !options.watch,
-    outDir: './lib'
+    outDir: './lib',
+    format: 'cjs',
+    treeshake: true
   };
 });

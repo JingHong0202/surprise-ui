@@ -5,7 +5,9 @@
   "main": "lib/run.js",
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "execute": "tsx run.ts",
+    "execute:watch": "tsx watch run.ts"
   },
   "bin": {
     "surprise-cli": "./lib/run.js"
@@ -13,6 +15,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "commander": "^10.0.1"
+    "commander": "^10.0.1",
+    "ora": "^6.3.0"
   }
 }

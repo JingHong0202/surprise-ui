@@ -27,5 +27,5 @@ dist-ssr
 .DS_Store
 __snapshots__
 es
-
+lib/
 surprise-docs
