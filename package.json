@@ -19,18 +19,15 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
-    "build:ts": "tsup",
     "build:type": "rimraf ./types && vue-tsc  --declaration --emitDeclarationOnly --outDir ./types -p tsconfigs/tsconfig-ui-type.json",
     "lint": "eslint . --fix",
     "test": "vitest run",
-    "format": "tsx ./scripts/format.ts",
     "prepare": "simple-git-hooks",
     "lint-staged": "lint-staged",
     "commit": "cz",
     "changelog": "standard-changelog",
     "release": "standard-version --no-verify",
-    "gen": "tsx ./scripts/generate.ts",
-    "sync": "tsx ./scripts/sync.ts"
+    "cli": "surprise-cli"
   },
   "packageManager": "pnpm@7.28.0",
   "sideEffects": false,

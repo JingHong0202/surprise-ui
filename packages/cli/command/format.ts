@@ -4,28 +4,30 @@ import inquirer from 'inquirer';
 
 // console.log(process.argv)
 
-execScript('npx', ['prettier', '--check', '.'])
-  .then(() => {
-    inquirer
-      .prompt([
-        {
-          type: 'confirm',
-          message: 'Format or not?',
-          name: 'is'
-        }
-      ])
-      .then(async ({ is }) => {
-        if (is) {
-          await execScript('npx', ['prettier', '--write', '.']);
-        }
-      })
-      .catch(err => {
-        log.error(err as string);
-      });
-  })
-  .catch(err => {
-    throw Error(err as string);
-  });
+export function formatCode() {
+  execScript('npx', ['prettier', '--check', '.'])
+    .then(() => {
+      inquirer
+        .prompt([
+          {
+            type: 'confirm',
+            message: 'Format or not?',
+            name: 'is'
+          }
+        ])
+        .then(async ({ is }) => {
+          if (is) {
+            await execScript('npx', ['prettier', '--write', '.']);
+          }
+        })
+        .catch(err => {
+          log.error(err as string);
+        });
+    })
+    .catch(err => {
+      throw Error(err as string);
+    });
+}
 
 function execScript(command: string, options: string[]): Promise<void> {
   return new Promise((resolve, reject) => {
