@@ -2,12 +2,29 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from 'node:path';
+// import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor';
+
 // @ts-ignore
 import DefineOptions from 'unplugin-vue-define-options/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vueJsx(), vue(), DefineOptions()],
+  plugins: [
+    vueJsx(),
+    vue(),
+    DefineOptions(),
+    // themePreprocessorPlugin({
+    //   scss: {
+    //     multipleScopeVars: [
+    //       {
+    //         scopeName: 'theme-default',
+    //         // 变量文件内容不应该夹带样式代码，设定上只需存在变量
+    //         path: path.resolve('./packages/ui/theme/index.scss')
+    //       },
+    //     ]
+    //   }
+    // })
+  ],
   build: {
     target: 'esnext',
     emptyOutDir: false,

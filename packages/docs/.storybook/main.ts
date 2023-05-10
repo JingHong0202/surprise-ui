@@ -2,6 +2,7 @@
 import { mergeConfig } from 'vite';
 import path from 'path';
 import DefineOptions from 'unplugin-vue-define-options/vite';
+// import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor';
 
 const config = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -20,7 +21,23 @@ const config = {
   },
   async viteFinal(config) {
     return mergeConfig(config, {
-      plugins: [DefineOptions()],
+      plugins: [
+        DefineOptions(),
+        // themePreprocessorPlugin({
+        //   scss: {
+        //     multipleScopeVars: [
+        //       {
+        //         scopeName: 'theme-default',
+        //         path: path.resolve(process.cwd(),'../../packages/ui/theme/index.scss')
+        //       },
+        //       {
+        //         scopeName: 'theme-dark',
+        //         path: path.resolve(process.cwd(),'../../packages/ui/theme/dark.scss')
+        //       }
+        //     ]
+        //   }
+        // })
+      ],
       resolve: {
         alias: [
           {

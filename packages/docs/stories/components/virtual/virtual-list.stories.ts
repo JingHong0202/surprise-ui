@@ -4,7 +4,7 @@ import {
   // verticalVirtualListType,
   horizonetalVirtualList
   // horizonetalVirtualListType
-} from '@ui/components/virtual-list';
+} from '@ui/index';
 import { formattedVueTemplate } from '@packages/utils/index';
 
 const data = buildData();
