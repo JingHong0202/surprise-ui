@@ -1,3 +1,13 @@
+@use 'sass:map';
+@use 'sass:math';
+// components 局部 CSS Var
+@use './components/index.scss';
+
+// global CSS Var
 :root {
-  --su-button-primary: red;
+  // light
+}
+
+// dark
+.theme-dark:root {
 }

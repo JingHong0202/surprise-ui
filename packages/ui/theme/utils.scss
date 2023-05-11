@@ -1,0 +1,33 @@
+@use 'config';
+
+@mixin set-css-var($name, $value) {
+  #{join($name)}: #{$value};
+}
+
+@mixin set-component-css-var($name, $variables) {
+  @each $attr, $value in $variables {
+    #{getCssVarName($name, $attr)}: #{$value};
+  }
+}
+
+@function join($args) {
+  $name: '--' + config.$namespace;
+  @each $item in $args {
+    @if $item != '' {
+      $name: $name + config.$common-sepa + $item;
+    }
+  }
+  @return $name;
+}
+
+@function getCssVarName($args...) {
+  @return join($args);
+}
+
+@mixin bem($block) {
+  $B: config.$namespace + config.$common-sepa + $block;
+
+  .#{$B} {
+    @content;
+  }
+}

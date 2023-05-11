@@ -1,0 +1,15 @@
+@use 'sass:map';
+// @use 'sass:math';
+@use '../utils.scss' as *;
+
+$button: () !default;
+$button: map.merge(
+  (
+    'color': red
+  ),
+  $button
+);
+
+@include bem(button) {
+  @include set-component-css-var('button', $button);
+}

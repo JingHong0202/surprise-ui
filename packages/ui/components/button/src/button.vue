@@ -1,5 +1,5 @@
 <template>
-  <button class="t">test</button>
+  <button class="su-button">test</button>
 </template>
 
 <script lang="ts" setup>
@@ -7,7 +7,7 @@ defineOptions({ name: 'su-button' });
 </script>
 
 <style scoped lang="scss">
-.t {
-  color: var(--su-button-primary);
+.su-button {
+  color: var(--su-button-color);
 }
 </style>
