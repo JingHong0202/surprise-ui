@@ -5,18 +5,21 @@ module.exports = {
 	},
 	extends: [
 		'eslint:recommended',
+		'plugin:vue/vue3-essential',
 		'plugin:@typescript-eslint/recommended',
-		'plugin:@typescript-eslint/recommended-requiring-type-checking'
+		'plugin:@typescript-eslint/recommended-requiring-type-checking',
 	],
 	root: true,
-	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
 	globals: { defineOptions: 'writable' },
 	root: true,
+	parser: 'vue-eslint-parser',
 	parserOptions: {
+		parser: '@typescript-eslint/parser',
 		project: true,
 		tsconfigRootDir: __dirname,
-		ecmaVersion: 'latest'
+		ecmaVersion: 'latest',
+		extraFileExtensions: ['.vue'],
 	},
 	rules: {
 		'@typescript-eslint/no-non-null-assertion': 'off',
@@ -32,7 +35,8 @@ module.exports = {
 		"semi": "off",
     "@typescript-eslint/semi": "off",
 		"@typescript-eslint/restrict-template-expressions": "off",
-		"@typescript-eslint/no-this-alias": "off"
+		"@typescript-eslint/no-this-alias": "off",
+		"vue/multi-word-component-names": "off"
 		// '@typescript-eslint/no-floating-promises': 'off'
 	}
 }
