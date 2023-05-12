@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     vueJsx(),
     vue(),
-    DefineOptions(),
+    DefineOptions()
     // themePreprocessorPlugin({
     //   scss: {
     //     multipleScopeVars: [
@@ -25,6 +25,14 @@ export default defineConfig({
     //   }
     // })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        charset: false,
+        additionalData: '@use "./packages/ui/theme/utils.scss";'
+      }
+    }
+  },
   build: {
     target: 'esnext',
     emptyOutDir: false,

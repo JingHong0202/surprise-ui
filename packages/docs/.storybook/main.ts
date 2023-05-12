@@ -22,7 +22,7 @@ const config = {
   async viteFinal(config) {
     return mergeConfig(config, {
       plugins: [
-        DefineOptions(),
+        DefineOptions()
         // themePreprocessorPlugin({
         //   scss: {
         //     multipleScopeVars: [
@@ -38,6 +38,14 @@ const config = {
         //   }
         // })
       ],
+      css: {
+        preprocessorOptions: {
+          scss: {
+            charset: false,
+            additionalData: '@use "../../ui/theme/utils.scss" as *;\n'
+          }
+        }
+      },
       resolve: {
         alias: [
           {

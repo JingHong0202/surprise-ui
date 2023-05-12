@@ -17,7 +17,7 @@
       $name: $name + config.$common-sepa + $item;
     }
   }
-  @return $name;
+  @return unquote($name);
 }
 
 @function getCssVarName($args...) {
@@ -30,4 +30,8 @@
   .#{$B} {
     @content;
   }
+}
+
+@function wrapVar($args...) {
+  @return var(join($args));
 }

@@ -14,6 +14,9 @@
         v-for="item in visibleData"
         :_id="item.__index"
         :key="item[props.keyName]">
+        <!-- 
+          @slot 列表子元素插槽，slotScope 获取当前条目
+         -->
         <slot :slotScope="item" />
       </div>
     </div>

@@ -1,11 +1,13 @@
-@use 'sass:map';
-@use 'sass:math';
+@use './colors.scss' as *;
 // components 局部 CSS Var
 @use './components/index.scss';
 
 // global CSS Var
 :root {
   // light
+  @each $type in (primary, success, warning, danger, error, info) {
+    @include set-css-color-rgb($type);
+  }
 }
 
 // dark

@@ -1,0 +1,68 @@
+@use './utils.scss' as *;
+@use 'sass:map';
+@use 'sass:math';
+// types
+$types: primary, success, warning, danger, error, info;
+
+// Color
+$colors: () !default;
+$colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': (
+      'base': #409eff
+    ),
+    'success': (
+      'base': #67c23a
+    ),
+    'warning': (
+      'base': #e6a23c
+    ),
+    'danger': (
+      'base': #f56c6c
+    ),
+    'error': (
+      'base': #f56c6c
+    ),
+    'info': (
+      'base': #909399
+    )
+  ),
+  $colors
+);
+$color-white: map.get($colors, 'white') !default;
+$color-black: map.get($colors, 'black') !default;
+@mixin set-color-mix-level(
+  $type,
+  $number,
+  $mode: 'light',
+  $mix-color: $color-white
+) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        '#{$mode}-#{$number}':
+          mix(
+            $mix-color,
+            map.get($colors, $type, 'base'),
+            math.percentage(math.div($number, 10))
+          )
+      )
+    ),
+    $colors
+  ) !global;
+}
+
+@each $type in $types {
+  @for $i from 1 through 9 {
+    @include set-color-mix-level($type, $i, 'light', $color-white);
+  }
+}
+@mixin set-css-color-rgb($type) {
+  $color: map.get($colors, $type, 'base');
+  @include set-css-var(
+    ('color', $type),
+    'rgb(#{red($color), green($color), blue($color)})'
+  );
+}
