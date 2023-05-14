@@ -4,6 +4,8 @@
 
 // global CSS Var
 :root {
+  @include set-css-var('color-white', $color-white);
+  @include set-css-var('color-black', $color-black);
   // light
   @each $type in (primary, success, warning, danger, error, info) {
     @include set-css-color-rgb($type);

@@ -8,15 +8,15 @@ import {
   Primary,
   Controls
 } from '@storybook/blocks';
-import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils';
+// import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils';
 
-const withThemeProvider = (Story, context) => {
-  const { theme } = context.globals;
-  if (theme === 'dark') {
-    toggleTheme({ scopeName: 'theme-dark' });
-  } else {
-    toggleTheme({ scopeName: 'theme-default' });
-  }
+const wrapProvider = (Story, context) => {
+  // const { theme } = context.globals;
+  // if (theme === 'dark') {
+  //   toggleTheme({ scopeName: 'theme-dark' });
+  // } else {
+  //   toggleTheme({ scopeName: 'theme-default' });
+  // }
   return {
     components: { Story },
     template: '<story/>'
@@ -40,7 +40,7 @@ const preview: Preview = {
       }
     }
   },
-  // decorators: [withThemeProvider],
+  decorators: [wrapProvider],
 
   parameters: {
     docs: {

@@ -5,8 +5,7 @@
 $button: () !default;
 $button: map.merge(
   (
-    'color': red,
-    'bg-color': red
+    border-radius: 5px
   ),
   $button
 );

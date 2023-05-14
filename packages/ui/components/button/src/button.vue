@@ -1,18 +1,6 @@
 <template>
-  <button
-    class="su-button"
-    :data-type="type"
-    :style="{
-      minWidth: rect[0],
-      minHeight: rect[1],
-      maxWidth: rect[2],
-      maxHeight: rect[3],
-      borderRadius: wrapStyle[0],
-      border: wrapStyle[1]
-    }">
-    <!-- 
-      @slot 按钮内容插槽
-    -->
+  <button class="su-button" :data-type="type" :style="customStyle">
+    <!--  @slot 按钮内容插槽 -->
     <slot>
       {{ label }}
     </slot>
@@ -20,32 +8,37 @@
 </template>
 
 <script lang="ts" setup>
+import { type StyleValue } from 'vue';
+
 defineOptions({ name: 'su-button' });
 const props = withDefaults(
   defineProps<{
     /** 按钮类型 */
-    type: 'primary' | 'success' | 'warning' | 'danger' | 'error' | 'info';
-    /** 按钮大小: minWidth、 minHeight、 maxWidth、 maxHeight */
-    rect: [string, string, string?, string?];
-    /** 按钮外部样式：borderRadius、 border */
-    wrapStyle: [string, string];
+    type?: 'primary' | 'success' | 'warning' | 'danger' | 'error' | 'info';
+    /** 自定义按钮样式 */
+    customStyle?: StyleValue;
     /** 按钮标题 */
     label?: string;
   }>(),
   {
-    type: 'primary',
-    rect: () => ['70px', '40px'],
-    wrapStyle: () => ['5px', 'none']
+    type: 'primary'
   }
 );
 </script>
 
 <style scoped lang="scss">
+@use '../../../theme/colors.scss' as *;
 .su-button {
   border: none;
-  &[data-type='primary'] {
-    color: wrapVar(color-primary);
-    background-color: wrapVar(button-bg-color);
+  min-width: 80px;
+  min-height: 35px;
+  border-radius: wrapVar(button-border-radius);
+  transition: all 200ms;
+  @each $type in $types {
+    &[data-type='#{$type}'] {
+      color: wrapVar(color-white);
+      background-color: wrapVar('color-' + $type);
+    }
   }
 }
 </style>
