@@ -1,15 +1,29 @@
 @use './colors.scss' as *;
 // components 局部 CSS Var
 @use './components/index.scss';
+@use 'sass:map';
 
 // global CSS Var
 :root {
+  // light
   @include set-css-var('color-white', $color-white);
   @include set-css-var('color-black', $color-black);
-  // light
-  @each $type in (primary, success, warning, danger, error, info) {
+  @include set-css-var('color-default', $color-white);
+  @each $type in $types {
     @include set-css-color-rgb($type);
   }
+  @include set-css-var(
+    'border',
+    '1px solid' + map.get($colors, 'info', 'light-6')
+  );
+}
+
+body,
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #333;
+  // font-weight: 400;
 }
 
 // dark

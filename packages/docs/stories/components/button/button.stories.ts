@@ -7,7 +7,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     type: {
-      options: ['primary', 'success', 'warning', 'danger', 'error', 'info'],
+      options: ['primary', 'success', 'warning', 'danger', 'error', 'info', ''],
       control: { type: 'select' }
     }
   }
@@ -22,7 +22,7 @@ export const primary: StoryObj<typeof meta> = {
     };
   },
   args: {
-    type: 'primary',
+    type: '',
     label: 'button',
     customStyle: '',
     default: ''

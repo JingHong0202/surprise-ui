@@ -9,21 +9,21 @@ $colors: () !default;
 $colors: map.deep-merge(
   (
     'white': #ffffff,
-    'black': #000000,
+    'black': #1b0917,
     'primary': (
-      'base': #409eff
+      'base': #8a69c4
     ),
     'success': (
-      'base': #67c23a
+      'base': #61bcaf
     ),
     'warning': (
       'base': #e6a23c
     ),
     'danger': (
-      'base': #f56c6c
+      'base': #f67777
     ),
     'error': (
-      'base': #f36565
+      'base': #f36060
     ),
     'info': (
       'base': #909399
@@ -53,16 +53,27 @@ $color-black: map.get($colors, 'black') !default;
     $colors
   ) !global;
 }
-
 @each $type in $types {
   @for $i from 1 through 9 {
     @include set-color-mix-level($type, $i, 'light', $color-white);
   }
 }
 @mixin set-css-color-rgb($type) {
-  $color: map.get($colors, $type, 'base');
-  @include set-css-var(
-    ('color', $type),
-    'rgb(#{red($color), green($color), blue($color)})'
-  );
+  $colorGroup: map.get($colors, $type);
+  @for $i from 1 through 10 {
+    $name: light- + $i;
+    $color: map.get($colorGroup, $name);
+    @if $color {
+      @include set-css-var(
+        ('color', $type, $name),
+        'rgb(#{red($color), green($color), blue($color)})'
+      );
+    } @else {
+      $colorBase: map.get($colorGroup, 'base');
+      @include set-css-var(
+        ('color', $type),
+        'rgb(#{red($colorBase), green($colorBase), blue($colorBase)})'
+      );
+    }
+  }
 }

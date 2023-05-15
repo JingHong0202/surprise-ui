@@ -1,11 +1,15 @@
 @use 'sass:map';
 // @use 'sass:math';
 @use '../utils.scss' as *;
+@use '../colors.scss' as *;
 
 $button: () !default;
 $button: map.merge(
   (
-    border-radius: 5px
+    border-radius: 4px,
+    color: $color-white,
+    disabled-opacity: 0.5,
+    round-radius: 35px
   ),
   $button
 );
