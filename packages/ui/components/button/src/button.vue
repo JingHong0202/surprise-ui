@@ -5,7 +5,7 @@
     :data-type="type"
     :data-plain="plain"
     :style="customStyle"
-    @click="emit('click')"
+    @click="emit('onClick')"
     :disabled="disabled">
     <!--  @slot 按钮内容插槽 -->
     <slot>
@@ -20,7 +20,7 @@ import { type StyleValue } from 'vue';
 defineOptions({ name: 'su-button' });
 const emit = defineEmits<{
   /** click event */
-  (event: 'click'): void;
+  (event: 'onClick'): void;
 }>();
 const props = withDefaults(
   defineProps<{

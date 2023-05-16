@@ -1,6 +1,5 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { SuButton } from '@ui/index';
-import { h } from 'vue';
 
 const meta = {
   component: SuButton,
@@ -10,12 +9,19 @@ const meta = {
       options: ['primary', 'success', 'warning', 'danger', 'error', 'info', ''],
       control: { type: 'select' }
     }
+    // label: {
+    //   if: { arg: 'default', truthy: false }
+    // }
+  },
+  parameters: {
+    layout: 'centered'
   }
 } satisfies Meta<typeof SuButton>;
+
 export default meta;
 
-export const primary: StoryObj<typeof meta> = {
-  render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => {
+export const normalize: StoryObj<typeof meta> = {
+  render: (args: ArgTypes) => {
     return {
       components: { SuButton },
       template: `<su-button v-bind="$props">${args.default}</su-button>`
@@ -25,9 +31,9 @@ export const primary: StoryObj<typeof meta> = {
     type: '',
     label: 'button',
     customStyle: '',
-    default: ''
+    default: '',
+    round: false,
+    plain: false,
+    disabled: false
   }
-  // parameters: {
-
-  // }
 };
