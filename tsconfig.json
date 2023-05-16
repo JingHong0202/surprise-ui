@@ -15,7 +15,8 @@
     "types": [
       "unplugin-vue-define-options/macros-global",
       "@types/node",
-      "vite/client"
+      "vite/client",
+      "vitest/globals"
     ],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,

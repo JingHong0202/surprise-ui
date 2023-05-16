@@ -85,5 +85,10 @@ export default defineConfig({
         replacement: path.resolve(__dirname, './')
       }
     ]
+  },
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    testTimeout: 30000
   }
 });
