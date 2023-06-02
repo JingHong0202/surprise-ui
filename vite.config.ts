@@ -29,7 +29,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         charset: false,
-        additionalData: '@use "./packages/ui/theme/utils.scss";'
+        additionalData: '@use "@ui/theme/utils.scss" as *;'
       }
     }
   },
