@@ -11,12 +11,28 @@ import {
 // import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils';
 
 const wrapProvider = (Story, context) => {
-  // const { theme } = context.globals;
-  // if (theme === 'dark') {
-  //   toggleTheme({ scopeName: 'theme-dark' });
-  // } else {
-  //   toggleTheme({ scopeName: 'theme-default' });
-  // }
+  const { theme } = context.globals;
+  const iframe: HTMLIFrameElement | null = parent.document.querySelector(
+    "iframe[title='vue-playroom']"
+  );
+  // console.log(parent.document.documentElement)
+  if (theme === 'dark') {
+    // 初始化vue-playroom主题
+    parent.document.documentElement.setAttribute('data-su-theme', 'dark');
+    // 实时变化vue-playroom主题
+    iframe?.contentWindow?.postMessage(
+      { type: 'changeTheme', mode: 'dark' },
+      '*'
+    );
+    // toggleTheme({ scopeName: 'theme-dark' });
+  } else {
+    parent.document.documentElement.setAttribute('data-su-theme', 'light');
+    iframe?.contentWindow?.postMessage(
+      { type: 'changeTheme', mode: 'light' },
+      '*'
+    );
+    // toggleTheme({ scopeName: 'theme-default' });
+  }
   return {
     components: { Story },
     template: '<story/>'

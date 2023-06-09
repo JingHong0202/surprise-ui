@@ -9,25 +9,74 @@ import { formattedVueTemplate } from '@packages/utils/index';
 
 const data = buildData();
 const verticalCode = formattedVueTemplate(`
-  <template>
-    <vertical-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
-      <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
-    </vertical-virtual-list>
-  </template>
-
   <script setup>
-  const data = ${JSON.stringify(data, null, 2)}
-  </script>`),
+import install from './inject-plugin.js';
+install();
+
+function buildData() {
+  const res = [];
+  for (let index = 0; index < 50; index++) {
+    res.push({ id: index, name: index });
+  }
+  return res;
+}
+const data = buildData();
+</script>
+
+<template>
+  <vertical-virtual-list
+    :itemSize="100"
+    :data="data"
+    keyName="id"
+    v-slot="{ slotScope }">
+    <div
+      v-text="slotScope.name"
+      :style="
+        'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' +
+        (slotScope.__index % 2 ? 'red' : 'green')
+      " />
+  </vertical-virtual-list>
+</template>
+
+<style>
+#app,
+html,
+body {
+  height: 99%;
+}
+</style>`),
   horizonetalCode = formattedVueTemplate(`
-  <template>
-    <horizonetal-virtual-list :itemSize="100" :data="data" keyName="id" v-slot="{ slotScope }">
-      <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
-    </horizonetal-virtual-list>
-  </template>
+ <script setup>
+import install from './inject-plugin.js';
+install();
 
-  <script setup>
-  const data = ${JSON.stringify(data, null, 2)}
-  </script>`);
+function buildData() {
+  const res = [];
+  for (let index = 0; index < 50; index++) {
+    res.push({ id: index, name: index });
+  }
+  return res;
+}
+const data = buildData();
+</script>
+
+<template>
+  <horizonetal-virtual-list
+    :itemSize="100"
+    :data="data"
+    keyName="id"
+    v-slot="{ slotScope }">
+    <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
+  </horizonetal-virtual-list>
+</template>
+
+<style>
+#app,
+html,
+body {
+  height: 99%;
+}
+</style>`);
 
 const meta: Meta = {
   title: 'components/virtual-list',
@@ -67,6 +116,9 @@ export const vertical: StoryObj<typeof verticalVirtualList> = {
       source: {
         code: verticalCode
       }
+    },
+    playroom: {
+      code: verticalCode
     }
   }
 };
@@ -95,6 +147,9 @@ export const horizonetal: StoryObj<typeof horizonetalVirtualList> = {
       source: {
         code: horizonetalCode
       }
+    },
+    playroom: {
+      code: horizonetalCode
     }
   }
 };

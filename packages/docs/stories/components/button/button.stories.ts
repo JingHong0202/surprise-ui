@@ -35,5 +35,18 @@ export const normalize: StoryObj<typeof meta> = {
     round: false,
     plain: false,
     disabled: false
+  },
+  parameters: {
+    playroom: {
+      code: `<script setup>
+import { ref } from 'vue'
+import install from './inject-plugin.js'
+install()
+</script>
+
+<template>
+  <su-button type="primary">button</su-button>
+</template>`
+    }
   }
 };
