@@ -1,4 +1,4 @@
-import './theme/index.scss'
+import './theme/index.scss';
 // support Tree Shaking
 export * from './components';
 // global

@@ -12,12 +12,12 @@
       "@docs/*": ["./packages/docs/*"],
       "@root/*": ["./*"]
     },
-    "types": [
-      "unplugin-vue-define-options/macros-global",
-      "@types/node",
-      "vite/client",
-      "vitest/globals"
-    ],
+    // "types": [
+    //   "unplugin-vue-define-options/macros-global",
+    //   "@types/node",
+    //   "vite/client",
+    //   "vitest/globals"
+    // ],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
@@ -25,8 +25,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types/", "./types"]
+    "forceConsistentCasingInFileNames": true
+    // "typeRoots": ["./node_modules/@types/", "./types"]
   },
   "include": ["**/*"],
   "exclude": ["node_modules", "dist", "packages/docs", "packages/cli/lib"]

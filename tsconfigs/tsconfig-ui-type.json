@@ -8,5 +8,13 @@
   "typeAcquisition": {
     "enable": true
   },
-  "exclude": ["../scripts", "../packages/docs", "../tests", "../*.config.ts"]
+  "include": ["../packages/ui"],
+  "exclude": [
+    "../scripts",
+    "../packages/docs",
+    "tests",
+    "../*.config.ts",
+    "../packages/cli, '../packages/utils/**/*",
+    "../packages/ui/components/**/tests"
+  ]
 }

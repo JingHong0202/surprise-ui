@@ -1,6 +1,6 @@
 {
   "name": "surprise_ui",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "",
   "exports": {
     ".": {
@@ -15,7 +15,7 @@
     "./umd": "./dist/es/index.umd.js"
   },
   "style": "./dist/es/style.css",
-  "types": "./types/ui/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
@@ -29,7 +29,6 @@
     "release": "standard-version --no-verify",
     "cli": "surprise-cli"
   },
-  "packageManager": "pnpm@7.28.0",
   "sideEffects": false,
   "author": "jinghong",
   "license": "MIT",
@@ -89,14 +88,14 @@
   },
   "files": [
     "dist",
-    "types",
-    "es"
+    "types"
   ],
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint --edit $1 --config commitlint.config.ts"
   },
   "engines": {
-    "node": ">=14.0.0"
-  }
+    "node": ">=14.0.0 || 18.16.0"
+  },
+  "packageManager": "pnpm@8.6.1"
 }

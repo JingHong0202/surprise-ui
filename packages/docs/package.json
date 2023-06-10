@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build -o surprise-docs",
-    "chromatic": "chromatic --project-token=chpt_668b8e09a75c129 --build-script-name=build"
+    "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN --build-script-name=release",
+    "cp:play": "copy './playroom/**/*' surprise-docs/playroom",
+    "release": "npm-run-all --serial build cp:play"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +24,8 @@
     "@types/prettier": "^2.7.2",
     "@types/react": "^18.2.0",
     "chromatic": "^6.18.2",
+    "copy": "^0.3.2",
+    "npm-run-all": "^4.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.0.11",
