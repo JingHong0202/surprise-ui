@@ -10,9 +10,6 @@ import { formattedVueTemplate } from '@packages/utils/index';
 const data = buildData();
 const verticalCode = formattedVueTemplate(`
   <script setup>
-import install from './inject-plugin.js';
-install();
-
 function buildData() {
   const res = [];
   for (let index = 0; index < 50; index++) {
@@ -47,9 +44,6 @@ body {
 </style>`),
   horizonetalCode = formattedVueTemplate(`
  <script setup>
-import install from './inject-plugin.js';
-install();
-
 function buildData() {
   const res = [];
   for (let index = 0; index < 50; index++) {

@@ -40,8 +40,6 @@ export const normalize: StoryObj<typeof meta> = {
     playroom: {
       code: `<script setup>
 import { ref } from 'vue'
-import install from './inject-plugin.js'
-install()
 </script>
 
 <template>
