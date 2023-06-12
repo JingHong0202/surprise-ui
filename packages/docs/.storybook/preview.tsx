@@ -60,6 +60,7 @@ const preview: Preview = {
 
   parameters: {
     docs: {
+      // story: { inline: false },
       page: () => (
         <>
           <Title />

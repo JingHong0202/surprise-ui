@@ -8,8 +8,7 @@ import {
 import { formattedVueTemplate } from '@packages/utils/index';
 
 const data = buildData();
-const verticalCode = formattedVueTemplate(`
-  <script setup>
+const verticalCode = formattedVueTemplate(`<script setup>
 function buildData() {
   const res = [];
   for (let index = 0; index < 50; index++) {
@@ -39,7 +38,7 @@ const data = buildData();
 #app,
 html,
 body {
-  height: 99%;
+  height: 100%;
 }
 </style>`),
   horizonetalCode = formattedVueTemplate(`
@@ -68,7 +67,7 @@ const data = buildData();
 #app,
 html,
 body {
-  height: 99%;
+  height: 100%;
 }
 </style>`);
 
