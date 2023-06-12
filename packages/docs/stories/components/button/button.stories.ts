@@ -38,13 +38,7 @@ export const normalize: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: `<script setup>
-import { ref } from 'vue'
-import install from './inject-plugin.js'
-install()
-</script>
-
-<template>
+      code: `<template>
   <su-button type="primary">button</su-button>
 </template>`
     }
