@@ -71,7 +71,12 @@ const preview: Preview = {
         </>
       )
     },
-
+    playroom: {
+      url:
+        process.env.NODE_ENV === 'production'
+          ? '/playroom'
+          : 'http://localhost:5173'
+    },
     backgrounds: {
       default: 'light',
       values: [

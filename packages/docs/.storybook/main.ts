@@ -9,7 +9,7 @@ const config = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    'addon-vue-playroom'
+    'storybook-addon-vue-playroom'
     // '@storybook/addon-interactions',
     // '@storybook/addon-storysource'
   ],
