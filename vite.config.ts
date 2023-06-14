@@ -1,18 +1,46 @@
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from 'node:path';
+import fs from 'node:fs';
 // import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor';
 
 // @ts-ignore
 import DefineOptions from 'unplugin-vue-define-options/vite';
 
+const themeProvider = (): Plugin => {
+  function copyDirectory(sourceDir: string, targetDir: string) {
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir);
+    }
+
+    const files = fs.readdirSync(sourceDir);
+
+    files.forEach(file => {
+      const sourcePath = path.join(sourceDir, file);
+      const targetPath = path.join(targetDir, file);
+
+      if (fs.statSync(sourcePath).isDirectory()) {
+        copyDirectory(sourcePath, targetPath);
+      } else {
+        fs.copyFileSync(sourcePath, targetPath);
+      }
+    });
+  }
+  return {
+    name: 'themeProvider',
+    closeBundle() {
+      copyDirectory('./packages/ui/theme', './dist/theme');
+    }
+  };
+};
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vueJsx(),
     vue(),
-    DefineOptions()
+    DefineOptions(),
+    themeProvider()
     // themePreprocessorPlugin({
     //   scss: {
     //     multipleScopeVars: [

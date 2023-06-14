@@ -1,0 +1,17 @@
+@forward '@ui/theme/colors.scss' with (
+  $colors: (
+    'primary': (
+      'base': green
+    )
+  )
+);
+
+@forward '@ui/theme/components/button.scss' with (
+  $button: (
+    border-radius: 4px,
+    color: red,
+    disabled-opacity: 0.5,
+    round-radius: 35px
+  )
+);
+// @use '@ui/theme/index.scss' as *;

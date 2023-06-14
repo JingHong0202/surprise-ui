@@ -1,4 +1,5 @@
 @use './colors.scss' as *;
+@use './utils.scss' as *;
 // components 局部 CSS Var
 @use './components/index.scss';
 @use 'sass:map';

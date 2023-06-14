@@ -42,8 +42,8 @@ const config = {
       css: {
         preprocessorOptions: {
           scss: {
-            charset: false,
-            additionalData: '@use "../../ui/theme/utils.scss" as *;\n'
+            charset: 'utf-8',
+            additionalData: '@use "../theme/dark.scss" as *;\n'
           }
         }
       },

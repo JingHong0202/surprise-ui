@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@jinghong/surprise-ui": "workspace:*",
     "@storybook/addon-essentials": "7.0.11",
     "@storybook/addon-interactions": "7.0.11",
     "@storybook/addon-links": "7.0.11",
@@ -19,6 +20,7 @@
     "@storybook/blocks": "7.0.11",
     "@storybook/manager-api": "^7.0.20",
     "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "^7.0.20",
     "@storybook/vue3": "7.0.11",
     "@storybook/vue3-vite": "7.0.11",
     "@types/prettier": "^2.7.2",
@@ -28,7 +30,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.0.11",
-    "@jinghong/surprise-ui": "workspace:*",
     "storybook-addon-vue-playroom": "^0.0.12"
   }
 }

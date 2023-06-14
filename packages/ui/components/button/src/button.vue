@@ -48,6 +48,7 @@ const props = withDefaults(
 
 <style scoped lang="scss">
 @use '@ui/theme/colors.scss' as *;
+@use '@ui/theme/utils.scss' as *;
 @use 'sass:map';
 
 .su-button {

@@ -10,13 +10,15 @@ import {
 } from '@storybook/blocks';
 // import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils';
 
-const wrapProvider = (Story, context) => {
+const themeProvider = (Story, context) => {
   const { theme } = context.globals;
   const iframe: HTMLIFrameElement | null = parent.document.querySelector(
     "iframe[title='vue-playroom']"
   );
   // console.log(parent.document.documentElement)
   if (theme === 'dark') {
+    document.body.classList.remove('su-light');
+    document.body.classList.add('su-dark');
     // 初始化vue-playroom主题
     parent.document.documentElement.setAttribute('data-su-theme', 'dark');
     // 实时变化vue-playroom主题
@@ -26,6 +28,8 @@ const wrapProvider = (Story, context) => {
     );
     // toggleTheme({ scopeName: 'theme-dark' });
   } else {
+    document.body.classList.remove('su-dark');
+    document.body.classList.add('su-light');
     parent.document.documentElement.setAttribute('data-su-theme', 'light');
     iframe?.contentWindow?.postMessage(
       { type: 'changeTheme', mode: 'light' },
@@ -56,11 +60,10 @@ const preview: Preview = {
       }
     }
   },
-  decorators: [wrapProvider],
+  decorators: [themeProvider],
 
   parameters: {
     docs: {
-      // story: { inline: false },
       page: () => (
         <>
           <Title />
@@ -71,30 +74,14 @@ const preview: Preview = {
         </>
       )
     },
+    backgrounds: { disable: true },
     playroom: {
       url:
         process.env.NODE_ENV === 'production'
           ? '/playroom'
           : 'http://localhost:5173'
     },
-    backgrounds: {
-      default: 'light',
-      values: [
-        {
-          name: 'bg dark',
-          value: '#333333'
-        },
-        {
-          name: 'bg light',
-          value: '#ffffff'
-        }
-        // {
-        //   name: 'primary',
-        //   value: '#fff'
-        // }
-      ]
-    },
-    actions: { argTypesRegex: '^on[A-Z].*' },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
