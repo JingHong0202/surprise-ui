@@ -64,7 +64,7 @@ const props = withDefaults(
   color: inherit;
   border: wrapVar(border);
   &:hover {
-    background-color: wrapVar(color-primary-light-9);
+    background-color: wrapVar(color-primary-9);
     border: 1px solid wrapVar(color-primary);
     color: wrapVar(color-primary);
     &[data-plain='true'] {
@@ -79,18 +79,18 @@ const props = withDefaults(
     &[data-type='#{$type}'] {
       color: wrapVar(button-color);
       background-color: wrapVar('color-' + $type);
-      border: 1px solid + map.get($colors, $type, 'light-5');
+      border: unquote('1px solid #{wrapVar( color- + $type + -5)}');
       &:hover {
         opacity: 0.7;
       }
       &[data-plain='true'] {
-        background-color: wrapVar('color-' + $type, light-9);
-        border: 1px solid wrapVar('color-' + $type);
+        background-color: wrapVar('color-' + $type + -9);
+        border: unquote("1px solid #{wrapVar('color-' + $type)}");
         color: wrapVar('color-' + $type);
         &:hover {
           background-color: wrapVar('color-' + $type);
           // border: 1px solid wrapVar('color-' + $type);
-          color: wrapVar('color-default');
+          color: wrapVar('color-white');
         }
       }
     }

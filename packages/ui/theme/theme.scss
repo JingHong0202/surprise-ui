@@ -1,0 +1,126 @@
+@use 'sass:map';
+@use 'sass:math';
+@use './colors.scss' as *;
+@use './utils.scss' as *;
+
+$schemes: () !default;
+$schemes: (
+  default: (
+    colors: (
+      // white: #ffffff,
+      // black: #1b0917,
+      primary:
+        (
+          base: #8a69c4
+        ),
+      success: (
+        base: #61bcaf
+      ),
+      warning: (
+        base: #e6a23c
+      ),
+      danger: (
+        base: #f67777
+      ),
+      error: (
+        base: #f36060
+      ),
+      info: (
+        base: #909399
+      )
+    ),
+    button: (
+      border-radius: 4px,
+      color: $color-white,
+      disabled-opacity: 0.5,
+      round-radius: 35px
+    )
+  ),
+  // su-dark: (
+  //   colors: (
+  //     white: #ffffff,
+  //     black: #1b0917,
+  //     primary: (
+  //       base: green
+  //     ),
+  //     success: (
+  //       base: #61bcaf
+  //     ),
+  //     warning: (
+  //       base: #e6a23c
+  //     ),
+  //     danger: (
+  //       base: #f67777
+  //     ),
+  //     error: (
+  //       base: #f36060
+  //     ),
+  //     info: (
+  //       base: #909399
+  //     )
+  //   )
+  // )
+);
+
+@mixin set-color-mix-level($type, $number, $mode, $mix-color, $colors) {
+  $schemes: map.deep-merge(
+    (
+      $mode: (
+        colors: (
+          $type: (
+            '#{$mode}-#{$number}':
+              mix(
+                $mix-color,
+                map.get($colors, $type, 'base'),
+                math.percentage(math.div($number, 10))
+              )
+          )
+        )
+      )
+    ),
+    $schemes
+  ) !global;
+}
+
+@mixin initColors($colors, $themeName) {
+  @each $type in $types {
+    @for $i from 1 through 9 {
+      @include set-color-mix-level($type, $i, $themeName, #ffffff, $colors);
+    }
+  }
+}
+
+@mixin set-css-color-rgb($type, $themeName) {
+  $colorGroup: map.get($schemes, $themeName, colors, $type);
+  @for $i from 1 through 10 {
+    $name: #{$themeName}- + $i;
+    $color: map.get($colorGroup, $name);
+    @if $color {
+      @include set-css-var(
+        ('color', $type, $i),
+        'rgb(#{red($color), green($color), blue($color)})'
+      );
+    } @else {
+      $colorBase: map.get($colorGroup, 'base');
+      @include set-css-var(
+        ('color', $type),
+        'rgb(#{red($colorBase), green($colorBase), blue($colorBase)})'
+      );
+    }
+  }
+}
+
+@each $themeName, $theme in $schemes {
+  @include theme-bem($themeName) {
+    @each $attrName, $attrVal in $theme {
+      @if $attrName == colors {
+        // @debug $themeName, $attrName;
+        @include initColors($attrVal, $themeName);
+        @each $type in $types {
+          @include set-css-color-rgb($type, $themeName);
+        }
+      }
+    }
+  }
+}
+// @debug $schemes;

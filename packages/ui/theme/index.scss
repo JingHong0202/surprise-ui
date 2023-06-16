@@ -1,23 +1,10 @@
-@use './colors.scss' as *;
+// @use './colors.scss' as *;
 @use './utils.scss' as *;
 // components 局部 CSS Var
 @use './components/index.scss';
-@use 'sass:map';
-
+// @use 'sass:map';
+@use './theme.scss';
 // global CSS Var
-:root {
-  // light
-  @include set-css-var('color-white', $color-white);
-  @include set-css-var('color-black', $color-black);
-  @include set-css-var('color-default', $color-white);
-  @each $type in $types {
-    @include set-css-color-rgb($type);
-  }
-  @include set-css-var(
-    'border',
-    '1px solid' + map.get($colors, 'info', 'light-6')
-  );
-}
 
 body,
 html {
@@ -25,8 +12,4 @@ html {
     Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: #333;
   // font-weight: 400;
-}
-
-// dark
-.theme-dark:root {
 }

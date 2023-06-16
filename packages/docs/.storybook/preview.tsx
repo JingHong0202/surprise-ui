@@ -73,6 +73,7 @@ const preview: Preview = {
           <Controls />
         </>
       )
+      // story: {inline: false}
     },
     backgrounds: { disable: true },
     playroom: {

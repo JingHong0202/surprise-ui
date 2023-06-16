@@ -1,7 +1,7 @@
 @forward '@ui/theme/colors.scss' with (
   $colors: (
     'primary': (
-      'base': green
+      'base': blue
     )
   )
 );
@@ -17,9 +17,8 @@
 @use '@ui/theme/colors.scss' as *;
 @use '@ui/theme/utils.scss' as *;
 @use 'sass:map';
-// @use '@ui/theme/components' as comps;
 // dark
-.su-dark {
+.su-blue {
   @include set-css-var('color-white', $color-white);
   @include set-css-var('color-black', $color-black);
   @include set-css-var('color-default', $color-white);
@@ -30,13 +29,6 @@
     'border',
     '1px solid' + map.get($colors, 'info', 'light-6')
   );
-  // @function join($args) {
-  // $name: '--' + config.$namespace;
-  // @each $item in comps {
-  //   @debug $item
-  // }
-  // // @return unquote($name);
-  // }
 }
 
 // body,

@@ -5,75 +5,31 @@
 $types: primary, success, warning, danger, error, info;
 
 // Color
-$colors: () !default;
-$colors: map.deep-merge(
-  (
-    'white': #ffffff,
-    'black': #1b0917,
-    'primary': (
-      'base': #8a69c4
-    ),
-    'success': (
-      'base': #61bcaf
-    ),
-    'warning': (
-      'base': #e6a23c
-    ),
-    'danger': (
-      'base': #f67777
-    ),
-    'error': (
-      'base': #f36060
-    ),
-    'info': (
-      'base': #909399
-    )
-  ),
-  $colors
-);
-$color-white: map.get($colors, 'white') !default;
-$color-black: map.get($colors, 'black') !default;
-@mixin set-color-mix-level(
-  $type,
-  $number,
-  $mode: 'light',
-  $mix-color: $color-white
-) {
-  $colors: map.deep-merge(
-    (
-      $type: (
-        '#{$mode}-#{$number}':
-          mix(
-            $mix-color,
-            map.get($colors, $type, 'base'),
-            math.percentage(math.div($number, 10))
-          )
-      )
-    ),
-    $colors
-  ) !global;
-}
-@each $type in $types {
-  @for $i from 1 through 9 {
-    @include set-color-mix-level($type, $i, 'light', $color-white);
-  }
-}
-@mixin set-css-color-rgb($type) {
-  $colorGroup: map.get($colors, $type);
-  @for $i from 1 through 10 {
-    $name: light- + $i;
-    $color: map.get($colorGroup, $name);
-    @if $color {
-      @include set-css-var(
-        ('color', $type, $name),
-        'rgb(#{red($color), green($color), blue($color)})'
-      );
-    } @else {
-      $colorBase: map.get($colorGroup, 'base');
-      @include set-css-var(
-        ('color', $type),
-        'rgb(#{red($colorBase), green($colorBase), blue($colorBase)})'
-      );
-    }
-  }
-}
+// $colors: () !default;
+// $colors: map.deep-merge(
+//   (
+//     'white': #ffffff,
+//     'black': #1b0917,
+//     'primary': (
+//       'base': #8a69c4
+//     ),
+//     'success': (
+//       'base': #61bcaf
+//     ),
+//     'warning': (
+//       'base': #e6a23c
+//     ),
+//     'danger': (
+//       'base': #f67777
+//     ),
+//     'error': (
+//       'base': #f36060
+//     ),
+//     'info': (
+//       'base': #909399
+//     )
+//   ),
+//   $colors
+// );
+$color-white: white !default;
+$color-black: #333 !default;
