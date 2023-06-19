@@ -33,28 +33,15 @@
 }
 
 @mixin theme-bem($block) {
-  @if $block == default {
-    :root {
-      @include set-css-var('color-white', white);
-      @include set-css-var('color-black', #333);
-      @include set-css-var('color-default', white);
-      @include set-css-var(
-        'border',
-        '1px solid ' + wrapVar('color', 'info', '6')
-      );
-      @content;
-    }
-  } @else {
-    .#{$block} {
-      @include set-css-var('color-white', white);
-      @include set-css-var('color-black', #333);
-      @include set-css-var('color-default', white);
-      @include set-css-var(
-        'border',
-        '1px solid ' + wrapVar('color', 'info', '6')
-      );
-      @content;
-    }
+  .#{$block} {
+    @include set-css-var('color-white', white);
+    @include set-css-var('color-black', #333);
+    @include set-css-var('color-default', white);
+    @include set-css-var(
+      'border',
+      '1px solid ' + wrapVar('color', 'info', '6')
+    );
+    @content;
   }
 }
 

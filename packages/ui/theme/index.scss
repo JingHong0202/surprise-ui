@@ -1,10 +1,10 @@
 // @use './colors.scss' as *;
-@use './utils.scss' as *;
+// @use './utils.scss' as *;
 // components 局部 CSS Var
-@use './components/index.scss';
+// @use './components/index.scss';
 // @use 'sass:map';
-@use './theme.scss';
 // global CSS Var
+@use './theme.scss';
 
 body,
 html {

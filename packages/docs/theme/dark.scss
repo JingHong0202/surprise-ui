@@ -1,49 +1,37 @@
-@forward '@ui/theme/colors.scss' with (
-  $colors: (
-    'primary': (
-      'base': green
-    )
-  )
-);
-
-// @forward '@ui/theme/components/button.scss' with (
-//   $button: (
-//     border-radius: 4px,
-//     disabled-opacity: 0.5,
-//     round-radius: 35px
-//   )
-// );
-
-@use '@ui/theme/colors.scss' as *;
-@use '@ui/theme/utils.scss' as *;
 @use 'sass:map';
-// @use '@ui/theme/components' as comps;
-// dark
-.su-dark {
-  @include set-css-var('color-white', $color-white);
-  @include set-css-var('color-black', $color-black);
-  @include set-css-var('color-default', $color-white);
-  @each $type in $types {
-    @include set-css-color-rgb($type);
-  }
-  @include set-css-var(
-    'border',
-    '1px solid' + map.get($colors, 'info', 'light-6')
-  );
-  // @function join($args) {
-  // $name: '--' + config.$namespace;
-  // @each $item in comps {
-  //   @debug $item
-  // }
-  // // @return unquote($name);
-  // }
-}
-
-// body,
-// html {
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-//     Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-//   color: green;
-//   // font-weight: 400;
-// }
-// @use '@ui/theme/index.scss' as *;
+@use '@ui/theme/schemes.scss' as *;
+$schemes: map.deep-merge(
+  (
+    su-dark: (
+      colors: (
+        // white: #ffffff,
+        // black: #1b0917,
+        primary:
+          (
+            base: green
+          ),
+        success: (
+          base: #61bcaf
+        ),
+        warning: (
+          base: #e6a23c
+        ),
+        danger: (
+          base: #f67777
+        ),
+        error: (
+          base: #f36060
+        ),
+        info: (
+          base: #909399
+        )
+      ),
+      button: (
+        border-radius: '40px',
+        disabled-opacity: 0.5,
+        round-radius: 35px
+      )
+    )
+  ),
+  $schemes
+) !global;

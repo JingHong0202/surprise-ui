@@ -39,14 +39,14 @@ const config = {
         //   }
         // })
       ],
-      // css: {
-      //   preprocessorOptions: {
-      //     scss: {
-      //       charset: 'utf-8',
-      //       additionalData: '@use "../theme/dark.scss" as *;\n'
-      //     }
-      //   }
-      // },
+      css: {
+        preprocessorOptions: {
+          scss: {
+            charset: 'utf-8',
+            additionalData: '@use "../theme/dark.scss" as *;\n'
+          }
+        }
+      },
       resolve: {
         alias: [
           {

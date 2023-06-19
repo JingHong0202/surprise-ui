@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use './colors.scss' as *;
+
+$schemes: () !default;
+$schemes: (
+  default: (
+    colors: (
+      // white: #ffffff,
+      // black: #1b0917,
+      primary:
+        (
+          base: #8a69c4
+        ),
+      success: (
+        base: #61bcaf
+      ),
+      warning: (
+        base: #e6a23c
+      ),
+      danger: (
+        base: #f67777
+      ),
+      error: (
+        base: #f36060
+      ),
+      info: (
+        base: #909399
+      )
+    ),
+    button: (
+      border-radius: 4px,
+      color: $color-white,
+      disabled-opacity: 0.5,
+      round-radius: 35px
+    )
+  ),
+  // su-dark: (
+  //   colors: (
+  //     // white: #ffffff,
+  //     // black: #1b0917,
+  //     primary:
+  //       (
+  //         base: green
+  //       ),
+  //     success: (
+  //       base: #61bcaf
+  //     ),
+  //     warning: (
+  //       base: #e6a23c
+  //     ),
+  //     danger: (
+  //       base: #f67777
+  //     ),
+  //     error: (
+  //       base: #f36060
+  //     ),
+  //     info: (
+  //       base: #909399
+  //     )
+  //   ),
+  //   button: (
+  //     border-radius: 40px,
+  //     color: $color-white,
+  //     disabled-opacity: 0.5,
+  //     round-radius: 35px
+  //   )
+  // )
+);
+// @debug $schemes;
