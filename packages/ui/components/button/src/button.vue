@@ -39,7 +39,7 @@ const props = withDefaults(
   }>(),
   {
     disabled: false,
-    type: '',
+    type: 'primary',
     plain: false,
     round: false
   }
@@ -59,29 +59,26 @@ const props = withDefaults(
   transition: all 150ms;
   font-size: 15px;
   font-weight: inherit;
+  border: wrapVar(border);
   cursor: pointer;
   background-color: wrapVar(color-default);
   color: inherit;
-  border: wrapVar(border);
-  &:hover {
-    background-color: wrapVar(color-primary-9);
-    border: 1px solid wrapVar(color-primary);
-    color: wrapVar(color-primary);
-    &[data-plain='true'] {
-      background-color: transparent;
-    }
-  }
-
+  outline: none;
   &.round {
     border-radius: wrapVar(button-round-radius);
   }
   @each $type in $types {
     &[data-type='#{$type}'] {
+      border: none;
       color: wrapVar(button-color);
       background-color: wrapVar('color-' + $type);
-      border: unquote('1px solid #{wrapVar( color- + $type + -5)}');
-      &:hover {
+      // border: unquote('1px solid #{wrapVar( color- + $type + -5)}');
+      &:hover,
+      &:focus {
         opacity: 0.7;
+      }
+      &:active {
+        box-shadow: 0 0 10px 5px wrapVar('color-' + $type + -7);
       }
       &[data-plain='true'] {
         background-color: wrapVar('color-' + $type + -9);

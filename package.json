@@ -32,6 +32,9 @@
   "sideEffects": false,
   "author": "jinghong",
   "license": "MIT",
+  "dependencies": {
+    "@iconify/vue": "^4.1.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",

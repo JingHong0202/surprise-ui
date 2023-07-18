@@ -82,7 +82,7 @@ const preview: Preview = {
           ? '/playroom'
           : 'http://localhost:5173'
     },
-
+    actions: { argTypesRegex: '^on.*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

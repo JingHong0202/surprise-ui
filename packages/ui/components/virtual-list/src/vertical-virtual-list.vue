@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useVirtualList } from './composable/useVirtualList';
+import { useVirtualList } from './composables/useVirtualList';
 import { binarySearch } from './common/utils';
 
 const props = withDefaults(

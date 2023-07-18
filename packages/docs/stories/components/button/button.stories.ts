@@ -7,7 +7,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     type: {
-      options: ['primary', 'success', 'warning', 'danger', 'error', 'info', ''],
+      options: ['primary', 'success', 'warning', 'danger', 'error', 'info'],
       control: { type: 'select' }
     }
     // label: {
@@ -29,7 +29,7 @@ export const normalize: StoryObj<typeof meta> = {
     };
   },
   args: {
-    type: '',
+    type: 'primary',
     label: 'button',
     customStyle: '',
     default: '',
