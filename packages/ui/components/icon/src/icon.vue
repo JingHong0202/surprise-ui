@@ -1,6 +1,6 @@
 <template>
   <Icon
-    :icon="name"
+    :icon="iconData"
     :inline="inline"
     :width="width"
     :height="height"
@@ -11,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref, unref } from 'vue';
 import { Icon, type IconifyIcon, iconExists } from '@iconify/vue';
 defineOptions({ name: 'icon' });
 const props = withDefaults(
@@ -41,8 +42,21 @@ const props = withDefaults(
   }
 );
 
-if (!props.online && typeof props.name === 'string') {
-  console.log(iconExists(props.name));
+const iconData = ref<typeof props.name>('');
+if (!props.online) {
+  // offline
+  if (typeof props.name !== 'string') {
+    iconData.value = unref(props.name);
+  } else {
+    if (!iconExists(props.name)) {
+      console.log(`${props.name}: unavailable`);
+    } else {
+      iconData.value = unref(props.name);
+    }
+  }
+} else {
+  // online
+  iconData.value = unref(props.name);
 }
 
 // function check(name: string) {}

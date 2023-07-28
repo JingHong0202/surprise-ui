@@ -1,13 +1,15 @@
 /** @type { import('@storybook/vue3').Preview } */
 import { Preview } from '@storybook/vue3';
-import React from 'react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls
-} from '@storybook/blocks';
+// import React from 'react';
+// import {
+//   Title,
+//   Subtitle,
+//   Description,
+//   Primary,
+//   Controls,
+//   Story,
+//   Stories,
+// } from '@storybook/blocks';
 // import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils';
 
 const themeProvider = (Story, context) => {
@@ -64,15 +66,17 @@ const preview: Preview = {
 
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Controls />
-        </>
-      )
+      // page: (arg) => {
+      //   return (
+      //   <>
+      //     <Title />
+      //     <Subtitle />
+      //     <Description />
+      //     <Stories />
+      //     <Controls />
+      //   </>
+      // )
+      // }
       // story: {inline: false}
     },
     backgrounds: { disable: true },
