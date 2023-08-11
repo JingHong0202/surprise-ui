@@ -7,13 +7,14 @@
     :flip="filp"
     :rotate="rotate"
     :color="color"
+    class="icon"
     :on-load="onLoad" />
 </template>
 
 <script lang="ts" setup>
-import { ref, unref } from 'vue';
+import { ref, unref, watchEffect } from 'vue';
 import { Icon, type IconifyIcon, iconExists } from '@iconify/vue';
-defineOptions({ name: 'icon' });
+defineOptions({ name: 'icon-ify' });
 const props = withDefaults(
   defineProps<{
     /** 是否使用在线模式，否则使用离线模式 */
@@ -43,23 +44,30 @@ const props = withDefaults(
 );
 
 const iconData = ref<typeof props.name>('');
-if (!props.online) {
-  // offline
-  if (typeof props.name !== 'string') {
-    iconData.value = unref(props.name);
-  } else {
+
+watchEffect(() => {
+  if (!props.online) {
+    // offline
+    if (typeof props.name === 'object') {
+      iconData.value = unref(props.name);
+      return;
+    }
     if (!iconExists(props.name)) {
-      console.log(`${props.name}: unavailable`);
+      console.error(`${props.name}: unavailable`);
     } else {
       iconData.value = unref(props.name);
     }
+  } else {
+    // online
+    iconData.value = unref(props.name);
   }
-} else {
-  // online
-  iconData.value = unref(props.name);
-}
+});
 
 // function check(name: string) {}
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.icon {
+  outline: none;
+}
+</style>

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-import { icon } from '@ui/index';
-
+import { IconIfy } from '@ui/index';
+// import
 const meta = {
-  component: icon,
+  component: IconIfy,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -12,18 +12,18 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof icon>;
+} satisfies Meta<typeof IconIfy>;
 
 export default meta;
 
 export const online: StoryObj<typeof meta> = {
   render: (args: ArgTypes) => {
     return {
-      components: { icon },
+      components: { IconIfy },
       setup() {
         return { args };
       },
-      template: `<icon v-bind="args" />`
+      template: `<icon-ify v-bind="args" />`
     };
   },
   args: {
@@ -34,7 +34,7 @@ export const online: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: `<icon name="material-symbols:accessibility-new-rounded"></icon>`
+      code: `<icon-ify name="material-symbols:accessibility-new-rounded"></icon-ify>`
     },
     docs: {
       description: {
@@ -47,22 +47,22 @@ export const online: StoryObj<typeof meta> = {
 export const offline: StoryObj<typeof meta> = {
   render: (args: ArgTypes) => {
     return {
-      components: { icon },
+      components: { IconIfy },
       setup() {
         return { args };
       },
-      template: `<icon v-bind="args" />`
+      template: `<icon-ify v-bind="args" />`
     };
   },
   args: {
-    name: 'material-symbols:accessibility-new-rounded',
+    name: 'material-symbols:wifi-tethering-rounded',
     width: 128,
     height: 128,
     online: false
   },
   parameters: {
     playroom: {
-      code: `<icon name="material-symbols:accessibility-new-rounded"></icon>`
+      code: `<icon-ify name="material-symbols:accessibility-new-rounded"></icon-ify>`
     }
   }
 };

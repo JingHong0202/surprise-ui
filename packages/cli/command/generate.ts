@@ -21,7 +21,7 @@ const vueTemplate = (component: string) =>
   runTemplate = (component: string) => {
     const humpForm = transformHump(component);
     return formattedTS(
-      `import { default as o } from './src/${component}.vue';import type { Plugin } from 'vue';import { compInstall } from '@ui/utils/export';export const ${humpForm} = compInstall(o);`
+      `import { default as o } from './src/${component}.vue';import { compInstall } from '@ui/utils/export';export const ${humpForm} = compInstall(o);`
     );
   };
 let args: string[];
