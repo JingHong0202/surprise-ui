@@ -1,15 +1,8 @@
-export declare const SuButton: {
+export declare const layoutGrid: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: {
-            type?: "" | "primary" | "success" | "warning" | "danger" | "error" | "info" | undefined;
-            disabled?: boolean | undefined;
-            plain?: boolean | undefined;
-            round?: boolean | undefined;
-            readonly customStyle?: import("vue").StyleValue | undefined;
-            readonly label?: string | undefined;
-            onOnClick?: (() => any) | undefined;
             style?: unknown;
             key?: string | number | symbol | undefined;
             ref?: import("vue").VNodeRef | undefined;
@@ -66,41 +59,9 @@ export declare const SuButton: {
         }>;
         $root: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}, {}, string, {}>, {}, {}> | null;
         $parent: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}, {}, string, {}>, {}, {}> | null;
-        $emit: (event: "onClick") => void;
+        $emit: (event: string, ...args: any[]) => void;
         $el: any;
-        $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-            type: {
-                type: import("vue").PropType<"" | "primary" | "success" | "warning" | "danger" | "error" | "info">;
-                default: string;
-            };
-            customStyle: {
-                type: import("vue").PropType<import("vue").StyleValue>;
-            };
-            label: {
-                type: import("vue").PropType<string>;
-            };
-            disabled: {
-                type: import("vue").PropType<boolean>;
-                default: boolean;
-            };
-            plain: {
-                type: import("vue").PropType<boolean>;
-                default: boolean;
-            };
-            round: {
-                type: import("vue").PropType<boolean>;
-                default: boolean;
-            };
-        }>> & {
-            onOnClick?: (() => any) | undefined;
-        }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-            onClick: () => void;
-        }, string, {
-            type: "" | "primary" | "success" | "warning" | "danger" | "error" | "info";
-            disabled: boolean;
-            plain: boolean;
-            round: boolean;
-        }, {}, string, {}> & {
+        $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}> & {
             beforeCreate?: ((() => void) | (() => void)[]) | undefined;
             created?: ((() => void) | (() => void)[]) | undefined;
             beforeMount?: ((() => void) | (() => void)[]) | undefined;
@@ -120,69 +81,8 @@ export declare const SuButton: {
         $forceUpdate: () => void;
         $nextTick: typeof import("vue").nextTick;
         $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (args_0: R, args_1: R) => any : (...args: any) => any, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
-    } & Readonly<import("vue").ExtractPropTypes<{
-        type: {
-            type: import("vue").PropType<"" | "primary" | "success" | "warning" | "danger" | "error" | "info">;
-            default: string;
-        };
-        customStyle: {
-            type: import("vue").PropType<import("vue").StyleValue>;
-        };
-        label: {
-            type: import("vue").PropType<string>;
-        };
-        disabled: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        plain: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        round: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-    }>> & {
-        onOnClick?: (() => any) | undefined;
-    } & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties & {};
+    } & Readonly<import("vue").ExtractPropTypes<{}>> & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties & {};
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
-} & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-    type: {
-        type: import("vue").PropType<"" | "primary" | "success" | "warning" | "danger" | "error" | "info">;
-        default: string;
-    };
-    customStyle: {
-        type: import("vue").PropType<import("vue").StyleValue>;
-    };
-    label: {
-        type: import("vue").PropType<string>;
-    };
-    disabled: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-    plain: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-    round: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
-    };
-}>> & {
-    onOnClick?: (() => any) | undefined;
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    onClick: () => void;
-}, string, {
-    type: "" | "primary" | "success" | "warning" | "danger" | "error" | "info";
-    disabled: boolean;
-    plain: boolean;
-    round: boolean;
-}, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
-    $slots: {
-        default?(_: {}): any;
-    };
-}) & import("vue").Plugin;
+} & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & import("vue").Plugin;

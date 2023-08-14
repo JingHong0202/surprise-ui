@@ -1,4 +1,3 @@
-import type { Plugin } from 'vue';
 export declare const horizonetalVirtualList: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
@@ -178,7 +177,7 @@ export declare const horizonetalVirtualList: {
             slotScope: any;
         }): any;
     };
-}) & Plugin;
+}) & import("vue").Plugin;
 export declare const verticalVirtualList: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
@@ -358,4 +357,4 @@ export declare const verticalVirtualList: {
             slotScope: any;
         }): any;
     };
-}) & Plugin;
+}) & import("vue").Plugin;

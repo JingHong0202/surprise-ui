@@ -1,16 +1,14 @@
-export declare const SuButton: {
+export declare const IconIfy: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: {
-            type?: "" | "primary" | "success" | "warning" | "danger" | "error" | "info" | undefined;
-            disabled?: boolean | undefined;
-            plain?: boolean | undefined;
-            round?: boolean | undefined;
-            readonly customStyle?: import("vue").StyleValue | undefined;
-            readonly label?: string | undefined;
-            onOnClick?: (() => any) | undefined;
+            height?: string | number | undefined;
+            width?: string | number | undefined;
+            online?: boolean | undefined;
+            readonly name: string | import("@iconify/vue").IconifyIcon;
             style?: unknown;
+            readonly onLoad?: (() => void) | undefined;
             key?: string | number | symbol | undefined;
             ref?: import("vue").VNodeRef | undefined;
             ref_for?: boolean | undefined;
@@ -54,6 +52,10 @@ export declare const SuButton: {
                 [key: string]: any;
             }>) => void)[] | undefined;
             class?: unknown;
+            readonly color?: string | undefined;
+            readonly rotate?: number | undefined;
+            readonly inline?: boolean | undefined;
+            readonly filp?: string | undefined;
         };
         $attrs: {
             [x: string]: unknown;
@@ -66,40 +68,44 @@ export declare const SuButton: {
         }>;
         $root: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}, {}, string, {}>, {}, {}> | null;
         $parent: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}, {}, string, {}>, {}, {}> | null;
-        $emit: (event: "onClick") => void;
+        $emit: (event: string, ...args: any[]) => void;
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-            type: {
-                type: import("vue").PropType<"" | "primary" | "success" | "warning" | "danger" | "error" | "info">;
-                default: string;
+            name: {
+                type: import("vue").PropType<string | import("@iconify/vue").IconifyIcon>;
+                required: true;
             };
-            customStyle: {
-                type: import("vue").PropType<import("vue").StyleValue>;
+            onLoad: {
+                type: import("vue").PropType<() => void>;
             };
-            label: {
+            color: {
                 type: import("vue").PropType<string>;
             };
-            disabled: {
+            height: {
+                type: import("vue").PropType<string | number>;
+                default: number;
+            };
+            width: {
+                type: import("vue").PropType<string | number>;
+                default: number;
+            };
+            rotate: {
+                type: import("vue").PropType<number>;
+            };
+            online: {
                 type: import("vue").PropType<boolean>;
                 default: boolean;
             };
-            plain: {
+            inline: {
                 type: import("vue").PropType<boolean>;
-                default: boolean;
             };
-            round: {
-                type: import("vue").PropType<boolean>;
-                default: boolean;
+            filp: {
+                type: import("vue").PropType<string>;
             };
-        }>> & {
-            onOnClick?: (() => any) | undefined;
-        }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-            onClick: () => void;
-        }, string, {
-            type: "" | "primary" | "success" | "warning" | "danger" | "error" | "info";
-            disabled: boolean;
-            plain: boolean;
-            round: boolean;
+        }>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+            height: string | number;
+            width: string | number;
+            online: boolean;
         }, {}, string, {}> & {
             beforeCreate?: ((() => void) | (() => void)[]) | undefined;
             created?: ((() => void) | (() => void)[]) | undefined;
@@ -121,68 +127,75 @@ export declare const SuButton: {
         $nextTick: typeof import("vue").nextTick;
         $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (args_0: R, args_1: R) => any : (...args: any) => any, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
     } & Readonly<import("vue").ExtractPropTypes<{
-        type: {
-            type: import("vue").PropType<"" | "primary" | "success" | "warning" | "danger" | "error" | "info">;
-            default: string;
+        name: {
+            type: import("vue").PropType<string | import("@iconify/vue").IconifyIcon>;
+            required: true;
         };
-        customStyle: {
-            type: import("vue").PropType<import("vue").StyleValue>;
+        onLoad: {
+            type: import("vue").PropType<() => void>;
         };
-        label: {
+        color: {
             type: import("vue").PropType<string>;
         };
-        disabled: {
+        height: {
+            type: import("vue").PropType<string | number>;
+            default: number;
+        };
+        width: {
+            type: import("vue").PropType<string | number>;
+            default: number;
+        };
+        rotate: {
+            type: import("vue").PropType<number>;
+        };
+        online: {
             type: import("vue").PropType<boolean>;
             default: boolean;
         };
-        plain: {
+        inline: {
             type: import("vue").PropType<boolean>;
-            default: boolean;
         };
-        round: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
+        filp: {
+            type: import("vue").PropType<string>;
         };
-    }>> & {
-        onOnClick?: (() => any) | undefined;
-    } & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties & {};
+    }>> & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties & {};
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
 } & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-    type: {
-        type: import("vue").PropType<"" | "primary" | "success" | "warning" | "danger" | "error" | "info">;
-        default: string;
+    name: {
+        type: import("vue").PropType<string | import("@iconify/vue").IconifyIcon>;
+        required: true;
     };
-    customStyle: {
-        type: import("vue").PropType<import("vue").StyleValue>;
+    onLoad: {
+        type: import("vue").PropType<() => void>;
     };
-    label: {
+    color: {
         type: import("vue").PropType<string>;
     };
-    disabled: {
+    height: {
+        type: import("vue").PropType<string | number>;
+        default: number;
+    };
+    width: {
+        type: import("vue").PropType<string | number>;
+        default: number;
+    };
+    rotate: {
+        type: import("vue").PropType<number>;
+    };
+    online: {
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-    plain: {
+    inline: {
         type: import("vue").PropType<boolean>;
-        default: boolean;
     };
-    round: {
-        type: import("vue").PropType<boolean>;
-        default: boolean;
+    filp: {
+        type: import("vue").PropType<string>;
     };
-}>> & {
-    onOnClick?: (() => any) | undefined;
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    onClick: () => void;
-}, string, {
-    type: "" | "primary" | "success" | "warning" | "danger" | "error" | "info";
-    disabled: boolean;
-    plain: boolean;
-    round: boolean;
-}, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
-    $slots: {
-        default?(_: {}): any;
-    };
-}) & import("vue").Plugin;
+}>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    height: string | number;
+    width: string | number;
+    online: boolean;
+}, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & import("vue").Plugin;
