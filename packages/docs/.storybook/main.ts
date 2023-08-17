@@ -20,6 +20,12 @@ const config = {
   docs: {
     autodocs: 'tag'
   },
+  typescript: {
+    // Overrides the default Typescript configuration to allow multi-package components to be documented via Autodocs.
+    reactDocgen: 'react-docgen',
+    skipBabel: true,
+    check: false
+  },
   async viteFinal(config) {
     return mergeConfig(config, {
       plugins: [

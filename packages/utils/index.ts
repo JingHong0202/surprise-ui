@@ -15,3 +15,32 @@ export const formattedTS = (code: string) => {
     plugins: [parsetTypeScript]
   });
 };
+
+// 防抖
+export function debounce(
+  func: (...args: any[]) => void | Promise<void>,
+  wait = 1000
+) {
+  let timer: NodeJS.Timeout | null;
+  return function (this: any, ...args: []) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      func && func.apply(this, args);
+      timer = null;
+    }, wait);
+  };
+}
+// 节流
+export function throttle(
+  func: (...args: any[]) => void | Promise<void>,
+  wait = 1000
+) {
+  let timer: NodeJS.Timeout | null;
+  return function (this: any, ...args: []) {
+    if (timer) return;
+    timer = setTimeout(() => {
+      timer = null;
+    }, wait);
+    func && func.apply(this, args);
+  };
+}

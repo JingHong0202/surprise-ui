@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { type StyleValue } from 'vue';
 
-defineOptions({ name: 'su-button' });
+defineOptions({ name: 'Button' });
 const emit = defineEmits<{
   /** click event */
   (event: 'onClick'): void;
