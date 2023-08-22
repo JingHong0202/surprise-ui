@@ -1,6 +1,6 @@
 {
   "name": "@jinghong/surprise-ui",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "description": "",
   "exports": {
     ".": {
@@ -27,6 +27,7 @@
     "commit": "cz",
     "changelog": "standard-changelog",
     "release": "standard-version --no-verify",
+    "prerelease": "standard-version --no-verify --prerelease beta",
     "cli": "surprise-cli"
   },
   "sideEffects": false,
@@ -81,11 +82,7 @@
       "path": "node_modules/cz-customizable"
     }
   },
-  "standard-version": {
-    "skip": {
-      "tag": true
-    }
-  },
+  "standard-version": {},
   "peerDependencies": {
     "vue": ">= 3"
   },
