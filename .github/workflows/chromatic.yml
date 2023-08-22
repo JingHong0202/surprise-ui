@@ -42,5 +42,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           workingDir: packages/docs
           buildScriptName: release
-          storybookBuildDir: packages/docs/surprise-docs
+          # storybookBuildDir: packages/docs/surprise-docs
           storybookBaseDir: packages/docs
