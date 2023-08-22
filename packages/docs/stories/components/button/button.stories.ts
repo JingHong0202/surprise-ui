@@ -1,8 +1,8 @@
 import { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-import { Button } from '@ui/index';
+import { SuButton } from '@ui/index';
 
 const meta = {
-  component: Button,
+  component: SuButton,
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -16,7 +16,7 @@ const meta = {
   parameters: {
     layout: 'centered'
   }
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof SuButton>;
 
 export default meta;
 
@@ -26,13 +26,13 @@ export const normalize: StoryObj<typeof meta> = {
       setup() {
         return { args };
       },
-      components: { Button },
-      template: `<Button v-bind="args">${args.default}</Button>`
+      components: { SuButton },
+      template: `<su-button v-bind="args">${args.default}</su-button>`
     };
   },
   args: {
     type: 'primary',
-    label: 'button',
+    label: 'button label',
     customStyle: '',
     default: '',
     round: false,
@@ -42,7 +42,7 @@ export const normalize: StoryObj<typeof meta> = {
   parameters: {
     playroom: {
       code: `<template>
-  <Button type="primary">button</Button>
+  <su-button type="primary">button</su-button>
 </template>`
     }
   }

@@ -9,7 +9,7 @@ import { provide } from 'vue';
 // import { CalcInfo } from './interface';
 // import { vResize } from '@packages/utils/vue/directives/resize';
 
-defineOptions({ name: 'Row' });
+defineOptions({ name: 'su-row' });
 
 export type RowProps = typeof props;
 const props = withDefaults(

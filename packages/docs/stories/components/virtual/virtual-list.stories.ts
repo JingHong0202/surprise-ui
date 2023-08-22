@@ -1,10 +1,5 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-import {
-  VerticalVirtualList,
-  // VerticalVirtualListType,
-  HorizonetalVirtualList
-  // HorizonetalVirtualListType
-} from '@ui/index';
+import { SuVerticalVirtualList, SuHorizonetalVirtualList } from '@ui/index';
 import { formattedVueTemplate } from '@packages/utils/index';
 
 const data = buildData();
@@ -20,7 +15,7 @@ const data = buildData();
 </script>
 
 <template>
-  <Vertical-virtual-list
+  <su-vertical-virtual-list
     :itemSize="100"
     :data="data"
     keyName="id"
@@ -31,7 +26,7 @@ const data = buildData();
         'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' +
         (slotScope.__index % 2 ? 'red' : 'green')
       " />
-  </Vertical-virtual-list>
+  </su-vertical-virtual-list>
 </template>
 
 <style>
@@ -54,13 +49,13 @@ const data = buildData();
 </script>
 
 <template>
-  <Horizonetal-virtual-list
+  <su-horizonetal-virtual-list
     :itemSize="100"
     :data="data"
     keyName="id"
     v-slot="{ slotScope }">
     <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
-  </Horizonetal-virtual-list>
+  </su-horizonetal-virtual-list>
 </template>
 
 <style>
@@ -73,7 +68,7 @@ body {
 
 const meta: Meta = {
   title: 'components/virtual-list',
-  component: VerticalVirtualList,
+  component: SuVerticalVirtualList,
   tags: ['autodocs']
 };
 export default meta;
@@ -85,14 +80,14 @@ function buildData() {
   return res;
 }
 
-export const vertical: StoryObj<typeof VerticalVirtualList> = {
+export const vertical: StoryObj<typeof SuVerticalVirtualList> = {
   render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
-    components: { VerticalVirtualList },
+    components: { SuVerticalVirtualList },
     props: Object.keys(argTypes),
     template: `
-    <Vertical-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName" v-slot="{ slotScope }">
+    <su-vertical-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName" v-slot="{ slotScope }">
       ${args.default}
-    </Vertical-virtual-list>`
+    </su-vertical-virtual-list>`
   }),
   decorators: [
     () => ({ template: '<div style="height:100vh;width:100%"><story/></div>' })
@@ -116,14 +111,14 @@ export const vertical: StoryObj<typeof VerticalVirtualList> = {
   }
 };
 
-export const horizonetal: StoryObj<typeof HorizonetalVirtualList> = {
+export const horizonetal: StoryObj<typeof SuHorizonetalVirtualList> = {
   render: (args: ArgTypes, { argTypes }: { argTypes: ArgTypes }) => ({
-    components: { HorizonetalVirtualList },
+    components: { SuHorizonetalVirtualList },
     props: Object.keys(argTypes),
     template: `
-    <Horizonetal-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName" v-slot="{ slotScope }">
+    <su-horizonetal-virtual-list :itemSize="itemSize" :buffer="buffer" :data="data" :keyName="keyName" v-slot="{ slotScope }">
       ${args.default}
-    </Horizonetal-virtual-list>`
+    </su-horizonetal-virtual-list>`
   }),
   decorators: [
     () => ({ template: '<div style="height:100vh;width:100%"><story/></div>' })

@@ -9,7 +9,7 @@ import { inject, computed } from 'vue';
 // import { CalcInfo } from './interface';
 import { RowProps } from './row.vue';
 
-defineOptions({ name: 'Row' });
+defineOptions({ name: 'su-col' });
 
 const props = withDefaults(
   defineProps<{

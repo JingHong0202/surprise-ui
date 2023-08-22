@@ -57,7 +57,7 @@ defineExpose({
 });
 
 defineOptions({
-  name: 'vertical-virtual-list'
+  name: 'su-vertical-virtual-list'
 });
 
 function wrapScrollHandler() {

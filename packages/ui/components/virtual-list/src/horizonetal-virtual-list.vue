@@ -51,7 +51,7 @@ const wrap = ref<HTMLDivElement>(),
     useVirtualList({ props, wrapElement: wrap, mode: 'horizontal' });
 
 defineOptions({
-  name: 'horizonetal-virtual-list'
+  name: 'su-horizonetal-virtual-list'
 });
 
 defineExpose({
