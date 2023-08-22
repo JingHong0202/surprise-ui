@@ -25,9 +25,12 @@ jobs:
           node-version: ${{env.NODE_VERSION}}
 
       - name: 'Resolve Project Dependencies Using PNPM'
-        shell: bash
-        run: |
-          pnpm install
+        uses: pnpm/action-setup@v2
+        with: 
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: chromaui
         uses:
