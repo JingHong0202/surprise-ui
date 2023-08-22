@@ -6,6 +6,7 @@ export declare const IconFont: {
             name?: string | undefined;
             type?: "symbol" | "unicode" | "font-class" | undefined;
             style?: unknown;
+            class?: unknown;
             key?: string | number | symbol | undefined;
             ref?: import("vue").VNodeRef | undefined;
             ref_for?: boolean | undefined;
@@ -48,7 +49,6 @@ export declare const IconFont: {
             }>) => void) | ((vnode: import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
                 [key: string]: any;
             }>) => void)[] | undefined;
-            class?: unknown;
         };
         $attrs: {
             [x: string]: unknown;

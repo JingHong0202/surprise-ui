@@ -1,12 +1,9 @@
-export declare const SuHorizonetalVirtualList: {
+export declare const SuRow: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: {
-            data?: any[] | undefined;
-            itemSize?: number | undefined;
-            buffer?: number | undefined;
-            keyName?: string | undefined;
+            cols?: number | undefined;
             style?: unknown;
             class?: unknown;
             key?: string | number | symbol | undefined;
@@ -66,34 +63,13 @@ export declare const SuHorizonetalVirtualList: {
         $emit: (event: string, ...args: any[]) => void;
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-            data: {
-                type: import("vue").PropType<any[]>;
-                required: true;
-                default: () => never[];
-            };
-            itemSize: {
+            cols: {
                 type: import("vue").PropType<number>;
                 required: true;
                 default: number;
             };
-            buffer: {
-                type: import("vue").PropType<number>;
-                default: number;
-            };
-            keyName: {
-                type: import("vue").PropType<string>;
-                required: true;
-                default: string;
-            };
-        }>>, {
-            reset: () => void;
-            container: import("vue").Ref<HTMLDivElement | undefined>;
-            _data: import("vue").Ref<any[]>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-            data: any[];
-            itemSize: number;
-            buffer: number;
-            keyName: string;
+        }>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+            cols: number;
         }, {}, string, {}> & {
             beforeCreate?: ((() => void) | (() => void)[]) | undefined;
             created?: ((() => void) | (() => void)[]) | undefined;
@@ -115,78 +91,37 @@ export declare const SuHorizonetalVirtualList: {
         $nextTick: typeof import("vue").nextTick;
         $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (args_0: R, args_1: R) => any : (...args: any) => any, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
     } & Readonly<import("vue").ExtractPropTypes<{
-        data: {
-            type: import("vue").PropType<any[]>;
-            required: true;
-            default: () => never[];
-        };
-        itemSize: {
+        cols: {
             type: import("vue").PropType<number>;
             required: true;
             default: number;
         };
-        buffer: {
-            type: import("vue").PropType<number>;
-            default: number;
-        };
-        keyName: {
-            type: import("vue").PropType<string>;
-            required: true;
-            default: string;
-        };
-    }>> & import("vue").ShallowUnwrapRef<{
-        reset: () => void;
-        container: import("vue").Ref<HTMLDivElement | undefined>;
-        _data: import("vue").Ref<any[]>;
-    }> & {} & import("vue").ComponentCustomProperties & {};
+    }>> & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties & {};
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
 } & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-    data: {
-        type: import("vue").PropType<any[]>;
-        required: true;
-        default: () => never[];
-    };
-    itemSize: {
+    cols: {
         type: import("vue").PropType<number>;
         required: true;
         default: number;
     };
-    buffer: {
-        type: import("vue").PropType<number>;
-        default: number;
-    };
-    keyName: {
-        type: import("vue").PropType<string>;
-        required: true;
-        default: string;
-    };
-}>>, {
-    reset: () => void;
-    container: import("vue").Ref<HTMLDivElement | undefined>;
-    _data: import("vue").Ref<any[]>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    data: any[];
-    itemSize: number;
-    buffer: number;
-    keyName: string;
+}>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    cols: number;
 }, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
-            slotScope: any;
-        }): any;
+        default?(_: {}): any;
     };
 }) & import("vue").Plugin;
-export declare const SuVerticalVirtualList: {
+export declare const SuCol: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: {
-            data?: any[] | undefined;
-            itemSize?: number | undefined;
-            buffer?: number | undefined;
-            keyName?: string | undefined;
+            push?: number | undefined;
+            span?: number | undefined;
+            offset?: number | undefined;
+            pull?: number | undefined;
             style?: unknown;
             class?: unknown;
             key?: string | number | symbol | undefined;
@@ -246,34 +181,31 @@ export declare const SuVerticalVirtualList: {
         $emit: (event: string, ...args: any[]) => void;
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-            data: {
-                type: import("vue").PropType<any[]>;
-                required: true;
-                default: () => never[];
-            };
-            itemSize: {
+            push: {
                 type: import("vue").PropType<number>;
                 required: true;
                 default: number;
             };
-            buffer: {
+            span: {
                 type: import("vue").PropType<number>;
+                required: true;
                 default: number;
             };
-            keyName: {
-                type: import("vue").PropType<string>;
+            offset: {
+                type: import("vue").PropType<number>;
                 required: true;
-                default: string;
+                default: number;
             };
-        }>>, {
-            reset: () => void;
-            container: import("vue").Ref<HTMLDivElement | undefined>;
-            _data: import("vue").Ref<any[]>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-            data: any[];
-            itemSize: number;
-            buffer: number;
-            keyName: string;
+            pull: {
+                type: import("vue").PropType<number>;
+                required: true;
+                default: number;
+            };
+        }>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+            push: number;
+            span: number;
+            offset: number;
+            pull: number;
         }, {}, string, {}> & {
             beforeCreate?: ((() => void) | (() => void)[]) | undefined;
             created?: ((() => void) | (() => void)[]) | undefined;
@@ -295,66 +227,58 @@ export declare const SuVerticalVirtualList: {
         $nextTick: typeof import("vue").nextTick;
         $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (args_0: R, args_1: R) => any : (...args: any) => any, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
     } & Readonly<import("vue").ExtractPropTypes<{
-        data: {
-            type: import("vue").PropType<any[]>;
-            required: true;
-            default: () => never[];
-        };
-        itemSize: {
+        push: {
             type: import("vue").PropType<number>;
             required: true;
             default: number;
         };
-        buffer: {
+        span: {
             type: import("vue").PropType<number>;
+            required: true;
             default: number;
         };
-        keyName: {
-            type: import("vue").PropType<string>;
+        offset: {
+            type: import("vue").PropType<number>;
             required: true;
-            default: string;
+            default: number;
         };
-    }>> & import("vue").ShallowUnwrapRef<{
-        reset: () => void;
-        container: import("vue").Ref<HTMLDivElement | undefined>;
-        _data: import("vue").Ref<any[]>;
-    }> & {} & import("vue").ComponentCustomProperties & {};
+        pull: {
+            type: import("vue").PropType<number>;
+            required: true;
+            default: number;
+        };
+    }>> & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties & {};
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
 } & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
-    data: {
-        type: import("vue").PropType<any[]>;
-        required: true;
-        default: () => never[];
-    };
-    itemSize: {
+    push: {
         type: import("vue").PropType<number>;
         required: true;
         default: number;
     };
-    buffer: {
+    span: {
         type: import("vue").PropType<number>;
+        required: true;
         default: number;
     };
-    keyName: {
-        type: import("vue").PropType<string>;
+    offset: {
+        type: import("vue").PropType<number>;
         required: true;
-        default: string;
+        default: number;
     };
-}>>, {
-    reset: () => void;
-    container: import("vue").Ref<HTMLDivElement | undefined>;
-    _data: import("vue").Ref<any[]>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    data: any[];
-    itemSize: number;
-    buffer: number;
-    keyName: string;
+    pull: {
+        type: import("vue").PropType<number>;
+        required: true;
+        default: number;
+    };
+}>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    push: number;
+    span: number;
+    offset: number;
+    pull: number;
 }, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
-            slotScope: any;
-        }): any;
+        default?(_: {}): any;
     };
 }) & import("vue").Plugin;

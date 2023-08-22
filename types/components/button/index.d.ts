@@ -11,6 +11,7 @@ export declare const SuButton: {
             readonly label?: string | undefined;
             onOnClick?: (() => any) | undefined;
             style?: unknown;
+            class?: unknown;
             key?: string | number | symbol | undefined;
             ref?: import("vue").VNodeRef | undefined;
             ref_for?: boolean | undefined;
@@ -53,7 +54,6 @@ export declare const SuButton: {
             }>) => void) | ((vnode: import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
                 [key: string]: any;
             }>) => void)[] | undefined;
-            class?: unknown;
         };
         $attrs: {
             [x: string]: unknown;

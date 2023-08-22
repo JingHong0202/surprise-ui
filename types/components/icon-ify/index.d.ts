@@ -9,6 +9,8 @@ export declare const IconIfy: {
             readonly name: string | import("@iconify/vue").IconifyIcon;
             style?: unknown;
             readonly onLoad?: (() => void) | undefined;
+            class?: unknown;
+            readonly color?: string | undefined;
             key?: string | number | symbol | undefined;
             ref?: import("vue").VNodeRef | undefined;
             ref_for?: boolean | undefined;
@@ -51,8 +53,6 @@ export declare const IconIfy: {
             }>) => void) | ((vnode: import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
                 [key: string]: any;
             }>) => void)[] | undefined;
-            class?: unknown;
-            readonly color?: string | undefined;
             readonly rotate?: number | undefined;
             readonly inline?: boolean | undefined;
             readonly filp?: string | undefined;
