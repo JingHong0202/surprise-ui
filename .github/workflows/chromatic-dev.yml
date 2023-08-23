@@ -36,7 +36,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{env.NODE_VERSION}}
-          cache: 'pnpm'
       - name: 'cd storybookDir'
         shell: bash
         run: |
@@ -48,7 +47,7 @@ jobs:
           ref: 'main'
           repository: JingHong0202/vue-playroom
           path: 'vue-playroom'
-      - name: 'cd vue-playroom'
+      - name: 'Vue PlayRoom Build'
         shell: bash
         run: |
          cd vue-playroom
