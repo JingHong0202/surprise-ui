@@ -41,7 +41,8 @@ jobs:
         shell: bash
         run: |
          ls
-         cd ./packages/docs
+         cd surprise-ui/packages/docs
+         ls
 
       - name: checkout vue-playroom
         uses: actions/checkout@v3
@@ -52,6 +53,7 @@ jobs:
       - name: 'Vue PlayRoom Build'
         shell: bash
         run: |
+         ls
          cd ./vue-playroom
          pnpm i
          pnpm build
