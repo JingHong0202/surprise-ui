@@ -1,0 +1,83 @@
+# .github/workflows/chromatic.yml
+
+# Workflow name
+name: 'Chromatic Publish'
+
+# Event for the workflow
+on: push
+
+env:
+  NODE_VERSION: '18.x'
+
+# List of jobs
+jobs:
+  push:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - name: checkout surprise-ui
+        uses: actions/checkout@v3
+        with:
+          ref: 'dev'
+          path: 'surprise-ui'
+      - name: 'cd surprise-ui'
+        shell: bash
+        run: |
+         cd surprise-ui
+      - name: 'Resolve Project Dependencies Using PNPM'
+        uses: pnpm/action-setup@v2
+        with: 
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: 'cd storybookDir'
+        shell: bash
+        run: |
+         cd packages/docs
+
+      - name: checkout vue-playroom
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+          repository: JingHong0202/vue-playroom
+          path: 'vue-playroom'
+      - name: 'cd vue-playroom'
+        shell: bash
+        run: |
+         cd vue-playroom
+      - name: 'Resolve Project Dependencies Using PNPM'
+        uses: pnpm/action-setup@v2
+        with: 
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+      - name: setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{env.NODE_VERSION}}
+          cache: 'pnpm'
+      - name: 'build playroom'
+        shell: bash
+        run: |
+         pnpm build
+         ls
+         cd ..
+         ls
+
+      
+      - name: chromaui
+        uses:
+          chromaui/action@v1
+          # Options required for Chromatic's GitHub Action
+        with:
+          #👇 Chromatic projectToken,
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: surprise-ui/packages/docs
+          buildScriptName: release
+          storybookBaseDir: surprise-ui/packages/docs
+          # storybookBuildDir: packages/docs/surprise-docs
