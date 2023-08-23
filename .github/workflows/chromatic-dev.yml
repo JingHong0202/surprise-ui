@@ -58,9 +58,9 @@ jobs:
          pnpm i
          pnpm build
          ls
-         cd ../../surprise-ui/packages/docs
+         cd ../../../surprise-ui/packages/docs
          ls
-         cp -r ../../vue-playroom/packages/repl/playroom ./playroom
+         cp -r ../../../vue-playroom/packages/repl/playroom ./playroom
          ls
 
       - name: chromaui
