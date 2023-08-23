@@ -43,4 +43,3 @@ jobs:
           workingDir: ./
           buildScriptName: release
           # storybookBuildDir: packages/docs/surprise-docs
-          storybookBaseDir: packages/docs
