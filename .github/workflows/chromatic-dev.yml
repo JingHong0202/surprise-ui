@@ -32,7 +32,6 @@ jobs:
           version: 8
           run_install: |
             - recursive: true
-              args: [--strict-peer-dependencies]
       - name: setup Node ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
@@ -53,22 +52,12 @@ jobs:
         shell: bash
         run: |
          cd vue-playroom
-      - name: 'Resolve Project Dependencies Using PNPM'
-        uses: pnpm/action-setup@v2
-        with: 
-          version: 8
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
-      - name: 'build playroom'
-        shell: bash
-        run: |
+         pnpm i
          pnpm build
          ls
          cd ..
          ls
 
-      
       - name: chromaui
         uses:
           chromaui/action@v1
