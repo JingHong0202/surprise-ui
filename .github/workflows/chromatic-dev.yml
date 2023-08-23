@@ -26,8 +26,6 @@ jobs:
         run: |
          cd surprise-ui
          ls
-         cd ..
-         ls
       - name: 'Resolve Project Dependencies Using PNPM'
         uses: pnpm/action-setup@v2
         with: 
