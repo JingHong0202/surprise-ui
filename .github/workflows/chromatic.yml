@@ -48,7 +48,7 @@ jobs:
           #👇 Chromatic projectToken,
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          workingDir: ./
+          workingDir: packages/docs
           buildScriptName: release
           storybookBaseDir: packages/docs
           # storybookBuildDir: packages/docs/surprise-docs
