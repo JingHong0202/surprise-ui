@@ -32,6 +32,12 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
+      - name: 'cd storybookDir'
+        shell: bash
+        run: |
+         cd packages/docs
+         ls 
+      
       - name: chromaui
         uses:
           chromaui/action@v1
