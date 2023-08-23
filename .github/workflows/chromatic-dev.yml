@@ -25,19 +25,20 @@ jobs:
         with:
           ref: 'dev'
           path: 'surprise-ui'
+          fetch-depth: 0
       - name: 'cd surprise-ui'
         shell: bash
         run: |
          cd surprise-ui
          ls
-      - name: 'Resolve Project Dependencies Using PNPM'
+      - name: 'resolve Project Dependencies Using PNPM'
         uses: pnpm/action-setup@v2
         with: 
           version: 8
           run_install: |
             - recursive: true
             
-      - name: 'cd storybookDir'
+      - name: 'cd StoryBook Docs Dir'
         shell: bash
         run: |
          ls
@@ -50,7 +51,7 @@ jobs:
           ref: 'main'
           repository: JingHong0202/vue-playroom
           path: 'vue-playroom'
-      - name: 'Vue PlayRoom Build'
+      - name: 'vue PlayRoom Build'
         shell: bash
         run: |
          ls
