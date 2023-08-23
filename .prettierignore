@@ -1,6 +1,9 @@
 dist
 node_modules
-.*
+.prettier*
+.git*
+!.github
+.eslint*
 !.storybook
 surprise-docs
 types

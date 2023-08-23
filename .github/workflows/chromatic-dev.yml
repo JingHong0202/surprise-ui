@@ -20,32 +20,32 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{env.NODE_VERSION}}
-      - name: checkout surprise-ui
+      - name: checkout Surprise UI
         uses: actions/checkout@v3
         with:
           ref: 'dev'
           path: 'surprise-ui'
           fetch-depth: 0
-      - name: 'cd surprise-ui'
+      - name: 'cd Surprise UI'
         shell: bash
         run: |
-         cd surprise-ui
-         ls
+          cd surprise-ui
+          ls
       - name: 'resolve Project Dependencies Using PNPM'
         uses: pnpm/action-setup@v2
-        with: 
+        with:
           version: 8
           run_install: |
             - recursive: true
-            
+
       - name: 'cd StoryBook Docs Dir'
         shell: bash
         run: |
-         ls
-         cd surprise-ui/packages/docs
-         ls
+          ls
+          cd surprise-ui/packages/docs
+          ls
 
-      - name: checkout vue-playroom
+      - name: checkout Vue PlayRoom
         uses: actions/checkout@v3
         with:
           ref: 'main'
@@ -54,15 +54,15 @@ jobs:
       - name: 'vue PlayRoom Build'
         shell: bash
         run: |
-         ls
-         cd ./vue-playroom/packages/repl
-         pnpm i
-         pnpm build
-         ls
-         cd ../../../surprise-ui/packages/docs
-         ls
-         cp -r ../../../vue-playroom/packages/repl/playroom ./playroom
-         ls
+          ls
+          cd ./vue-playroom/packages/repl
+          pnpm i
+          pnpm build
+          ls
+          cd ../../../surprise-ui/packages/docs
+          ls
+          cp -r ../../../vue-playroom/packages/repl/playroom ./playroom
+          ls
 
       - name: chromaui
         uses:
