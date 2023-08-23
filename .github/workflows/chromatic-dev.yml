@@ -54,11 +54,13 @@ jobs:
         shell: bash
         run: |
          ls
-         cd ./vue-playroom
+         cd ./vue-playroom/packages/repl
          pnpm i
          pnpm build
          ls
-         cd ..
+         cd ../../surprise-ui/packages/docs
+         ls
+         cp -r ../../vue-playroom/packages/repl/playroom ./playroom
          ls
 
       - name: chromaui
