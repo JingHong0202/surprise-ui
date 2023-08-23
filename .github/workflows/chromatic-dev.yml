@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
+      - name: setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{env.NODE_VERSION}}
       - name: checkout surprise-ui
         uses: actions/checkout@v3
         with:
@@ -32,14 +36,12 @@ jobs:
           version: 8
           run_install: |
             - recursive: true
-      - name: setup Node ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{env.NODE_VERSION}}
+            
       - name: 'cd storybookDir'
         shell: bash
         run: |
-         cd packages/docs
+         ls
+         cd ./packages/docs
 
       - name: checkout vue-playroom
         uses: actions/checkout@v3
@@ -50,7 +52,7 @@ jobs:
       - name: 'Vue PlayRoom Build'
         shell: bash
         run: |
-         cd vue-playroom
+         cd ./vue-playroom
          pnpm i
          pnpm build
          ls
