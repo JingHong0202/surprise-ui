@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { formattedTS } from '@packages/utils';
+import defaultFormat from './common';
 
 export function syncComponentFile() {
   const basePath = process.cwd();
@@ -11,6 +12,6 @@ export function syncComponentFile() {
   }, '');
   fs.writeFileSync(
     `${basePath}/packages/ui/components/index.ts`,
-    formattedTS(write)
+    formattedTS(write, defaultFormat)
   );
 }

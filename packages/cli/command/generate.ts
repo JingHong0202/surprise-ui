@@ -5,23 +5,24 @@ import path from 'node:path';
 import { confirm } from './utils/prompt';
 import { formattedVueTemplate, formattedTS } from '@packages/utils';
 import { syncComponentFile } from './utils/components';
+import defaultFormat from './utils/common';
 
 const basePath = process.cwd();
 const transformHump = (str: string) =>
-  str.split('-').reduce((accumulator, current, index) => {
-    accumulator += !index
-      ? current
-      : current[0].toLocaleUpperCase() + current.slice(1);
+  str.split('-').reduce((accumulator, current) => {
+    accumulator += current[0].toLocaleUpperCase() + current.slice(1);
     return accumulator;
   }, '');
 const vueTemplate = (component: string) =>
     formattedVueTemplate(
-      `<template>\r\r\r\r<div></div>\r</template>\n\n<script lang="ts" setup>defineOptions({name: '${component}'});</script>\n\n<style scoped lang="scss"></style>`
+      `<template>\r\r\r\r<div></div>\r</template>\n\n<script lang="ts" setup>defineOptions({name: '${component}'});</script>\n\n<style scoped lang="scss"></style>`,
+      defaultFormat
     ),
   runTemplate = (component: string) => {
     const humpForm = transformHump(component);
     return formattedTS(
-      `import { default as o } from './src/${component}.vue';import { compInstall } from '@ui/utils/export';export const ${humpForm} = /*@__PURE__*/ compInstall(o);`
+      `import { default as o } from './src/${component}.vue';import { compInstall } from '@ui/utils/export';export const ${humpForm} = /*@__PURE__*/ compInstall(o);`,
+      defaultFormat
     );
   };
 let args: string[];

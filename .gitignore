@@ -25,6 +25,6 @@ dist-ssr
 .DS_Store
 __snapshots__
 es
-lib/
+# lib/
 surprise-docs
 playroom
