@@ -1,6 +1,5 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { IconFont } from '@ui/index';
-import { formattedVueTemplate } from '@packages/utils/index';
 
 // import
 const meta = {
@@ -38,9 +37,14 @@ export const fontClass: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`<template>
-      <icon-font name="iconshezhi" type="font-class" style="font-size: 320px" /></template>
-      <script>document.head.innerHTML += \`<link rel="stylesheet" href='//at.alicdn.com/t/c/font_1462439_q408t28u0a.css'/>\`</script>`)
+      code: `<template>
+  <icon-font name="iconshezhi" type="font-class" style="font-size: 320px" />
+</template>
+
+<script>
+document.head.innerHTML += \`<link rel="stylesheet" href='//at.alicdn.com/t/c/font_1462439_q408t28u0a.css'/>\`
+</script>
+`
     },
     docs: {
       description: {
@@ -87,9 +91,11 @@ export const uniCode: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`<template>
-      <icon-font name="&#xe7cc;" style="font-size: 320px" type="unicode" /></template>
-      <script>const styleEle = document.createElement('style');
+      code: `<template>
+  <icon-font name="&#xe7cc;" style="font-size: 320px" type="unicode"
+/></template>
+<script>
+const styleEle = document.createElement('style');
 styleEle.textContent = \` /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
   font-family: 'iconfont';  /* Project id 1462439 */
@@ -104,7 +110,9 @@ styleEle.textContent = \` /* 在线链接服务仅供平台体验和调试使用
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }\`;
-document.head.appendChild(styleEle);</script>`)
+document.head.appendChild(styleEle);
+</script>
+`
     },
     docs: {
       description: {
@@ -151,13 +159,17 @@ export const symbol: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`<template>
-      <icon-font name="iconlianjie" style="width: 420px;height:420px;fill: red" type="symbol" /></template>
+      code: `<template>
+  <icon-font
+    name="iconlianjie"
+    style="width: 420px; height: 420px; fill: red"
+    type="symbol"
+/></template>
 <script>
 const styleEle = document.createElement('style');
 const scriptEle = document.createElement('script');
 scriptEle.src = \`//at.alicdn.com/t/c/font_1462439_q408t28u0a.js\`;
-styleEle.textContent = 
+styleEle.textContent =
 \`<style type="text/css">
 .icon {
   width: 1em; height: 1em;
@@ -167,7 +179,9 @@ styleEle.textContent =
 }
 </style>\`;
 document.head.appendChild(styleEle);
-document.head.appendChild(scriptEle);</script>`)
+document.head.appendChild(scriptEle);
+</script>
+`
     },
     docs: {
       description: {

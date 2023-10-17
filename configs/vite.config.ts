@@ -2,16 +2,15 @@ import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from 'node:path';
-import { copyDirectory } from '@packages/utils/node/file';
+import { copyDirectory } from '../packages/utils/node/file';
 // import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor';
 
 // @ts-ignore
 import DefineOptions from 'unplugin-vue-define-options/vite';
-
 const themeProvider = (): Plugin => {
   return {
     name: 'themeProvider',
-    closeBundle() {
+    async closeBundle() {
       copyDirectory('./packages/ui/theme', './dist/theme');
     }
   };
@@ -59,6 +58,13 @@ export default defineConfig({
           format: 'es',
           dir: 'dist/es'
         },
+        // {
+        //   entryFileNames: '[name].mjs',
+        //   preserveModules: true,
+        //   preserveModulesRoot: './packages/utils',
+        //   format: 'es',
+        //   dir: 'dist/utils'
+        // },
         {
           entryFileNames: 'index.umd.js',
           format: 'umd',
@@ -76,23 +82,29 @@ export default defineConfig({
           exports: 'named'
         }
       ],
-      external: ['vue']
+      external: [
+        'vue',
+        /^ol\/(?!ol\.css)/,
+        'ol',
+        /^prettier\/.*/,
+        '@iconify/vue'
+      ]
     }
   },
   resolve: {
     alias: [
-      { find: '@ui', replacement: path.resolve(__dirname, './packages/ui') },
+      { find: '@ui', replacement: path.resolve(__dirname, '../packages/ui') },
       {
         find: '@packages',
-        replacement: path.resolve(__dirname, './packages')
+        replacement: path.resolve(__dirname, '../packages')
       },
       {
         find: '@docs',
-        replacement: path.resolve(__dirname, './packages/docs')
+        replacement: path.resolve(__dirname, '../packages/docs')
       },
       {
         find: '@root',
-        replacement: path.resolve(__dirname, './')
+        replacement: path.resolve(__dirname, '../')
       }
     ]
   },

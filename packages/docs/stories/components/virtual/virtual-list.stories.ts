@@ -1,17 +1,16 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { SuVerticalVirtualList, SuHorizonetalVirtualList } from '@ui/index';
-import { formattedVueTemplate } from '@packages/utils/index';
 
 const data = buildData();
-const verticalCode = formattedVueTemplate(`<script setup>
+const verticalCode = `<script setup>
 function buildData() {
-  const res = [];
+  const res = []
   for (let index = 0; index < 50; index++) {
-    res.push({ id: index, name: index });
+    res.push({ id: index, name: index })
   }
-  return res;
+  return res
 }
-const data = buildData();
+const data = buildData()
 </script>
 
 <template>
@@ -19,13 +18,15 @@ const data = buildData();
     :itemSize="100"
     :data="data"
     keyName="id"
-    v-slot="{ slotScope }">
+    v-slot="{ slotScope }"
+  >
     <div
       v-text="slotScope.name"
       :style="
         'display:flex;justify-content:center;align-items:center;height: 100px;background-color:' +
         (slotScope.__index % 2 ? 'red' : 'green')
-      " />
+      "
+    />
   </su-vertical-virtual-list>
 </template>
 
@@ -35,17 +36,17 @@ html,
 body {
   height: 100%;
 }
-</style>`),
-  horizonetalCode = formattedVueTemplate(`
- <script setup>
+</style>
+`,
+  horizonetalCode = `<script setup>
 function buildData() {
-  const res = [];
+  const res = []
   for (let index = 0; index < 50; index++) {
-    res.push({ id: index, name: index });
+    res.push({ id: index, name: index })
   }
-  return res;
+  return res
 }
-const data = buildData();
+const data = buildData()
 </script>
 
 <template>
@@ -53,8 +54,15 @@ const data = buildData();
     :itemSize="100"
     :data="data"
     keyName="id"
-    v-slot="{ slotScope }">
-    <div v-text="slotScope.name" :style="'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' + (slotScope.__index % 2 ? 'red' : 'green')"/>
+    v-slot="{ slotScope }"
+  >
+    <div
+      v-text="slotScope.name"
+      :style="
+        'display:flex;justify-content:center;align-items:center;height: 100%;width:100px;background-color:' +
+        (slotScope.__index % 2 ? 'red' : 'green')
+      "
+    />
   </su-horizonetal-virtual-list>
 </template>
 
@@ -64,7 +72,8 @@ html,
 body {
   height: 100%;
 }
-</style>`);
+</style>
+`;
 
 const meta: Meta = {
   title: 'components/virtual-list',

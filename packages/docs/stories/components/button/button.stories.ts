@@ -9,6 +9,9 @@ const meta = {
       options: ['primary', 'success', 'warning', 'danger', 'error', 'info'],
       control: { type: 'select' }
     }
+    // onClick: {
+    //   action: 'btn'
+    // }
     // label: {
     //   if: { arg: 'default', truthy: false }
     // }

@@ -4,28 +4,33 @@
 $schemes: () !default;
 $schemes: (
   default: (
-    colors: (
-      // white: #ffffff,
-      // black: #1b0917,
-      primary:
-        (
-          base: #8a69c4
+    public: (
+      colors: (
+        // white: #ffffff,
+        // black: #1b0917,
+        primary:
+          (
+            base: #8a69c4
+          ),
+        success: (
+          base: #61bcaf
         ),
-      success: (
-        base: #61bcaf
+        warning: (
+          base: #e6a23c
+        ),
+        danger: (
+          base: #f67777
+        ),
+        error: (
+          base: #f36060
+        ),
+        info: (
+          base: #909399
+        )
       ),
-      warning: (
-        base: #e6a23c
-      ),
-      danger: (
-        base: #f67777
-      ),
-      error: (
-        base: #f36060
-      ),
-      info: (
-        base: #909399
-      )
+      // fonts: (
+      //   default-size:
+      // )
     ),
     button: (
       border-radius: 4px,
@@ -35,27 +40,29 @@ $schemes: (
     )
   ),
   // su-dark: (
-  //   colors: (
-  //     // white: #ffffff,
-  //     // black: #1b0917,
-  //     primary:
-  //       (
-  //         base: green
+  //   public: (
+  //     colors: (
+  //       // white: #ffffff,
+  //       // black: #1b0917,
+  //       primary:
+  //         (
+  //           base: green
+  //         ),
+  //       success: (
+  //         base: #61bcaf
   //       ),
-  //     success: (
-  //       base: #61bcaf
-  //     ),
-  //     warning: (
-  //       base: #e6a23c
-  //     ),
-  //     danger: (
-  //       base: #f67777
-  //     ),
-  //     error: (
-  //       base: #f36060
-  //     ),
-  //     info: (
-  //       base: #909399
+  //       warning: (
+  //         base: #e6a23c
+  //       ),
+  //       danger: (
+  //         base: #f67777
+  //       ),
+  //       error: (
+  //         base: #f36060
+  //       ),
+  //       info: (
+  //         base: #909399
+  //       )
   //     )
   //   ),
   //   button: (

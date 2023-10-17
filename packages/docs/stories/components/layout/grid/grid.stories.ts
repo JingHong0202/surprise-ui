@@ -1,6 +1,5 @@
 import { StoryObj, ArgTypes } from '@storybook/vue3';
 import { SuCol, SuRow } from '@ui/index';
-import { formattedVueTemplate } from '@packages/utils/index';
 
 const meta = {
   component: SuRow,
@@ -63,32 +62,32 @@ export const normalize: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`
-      <template> 
-        <su-row>
-          <su-col :span="6"  :pull="6">
-            <div style="width:100%;background:#f1f1f1;height: 50px"></div>
-          </su-col>
-          <su-col :span="6" :push="6">
-            <div style="width:100%;background:#9f9f9f;height: 50px"></div>
-          </su-col>
-          <su-col :span="6" :pull="6">
-            <div style="width:100%;background:#f1f1f1;height: 50px"></div>
-          </su-col>
-          <su-col :span="6" :push="6">
-            <div style="width:100%;background:#9f9f9f;height: 50px"></div>
-          </su-col>
-        </su-row>
+      code: `<template>
+  <su-row>
+    <su-col :span="6" :pull="6">
+      <div style="width: 100%; background: #f1f1f1; height: 50px"></div>
+    </su-col>
+    <su-col :span="6" :push="6">
+      <div style="width: 100%; background: #9f9f9f; height: 50px"></div>
+    </su-col>
+    <su-col :span="6" :pull="6">
+      <div style="width: 100%; background: #f1f1f1; height: 50px"></div>
+    </su-col>
+    <su-col :span="6" :push="6">
+      <div style="width: 100%; background: #9f9f9f; height: 50px"></div>
+    </su-col>
+  </su-row>
 
-        <su-row>
-          <su-col :span="6" :offset='6'>
-            <div style="width:100%;background:#f1f1f1;height: 50px"></div>
-          </su-col>
-          <su-col :span="6" :offset='6'>
-            <div style="width:100%;background:#9f9f9f;height: 50px"></div>
-          </su-col>
-        </su-row>
-      </template>`)
+  <su-row>
+    <su-col :span="6" :offset="6">
+      <div style="width: 100%; background: #f1f1f1; height: 50px"></div>
+    </su-col>
+    <su-col :span="6" :offset="6">
+      <div style="width: 100%; background: #9f9f9f; height: 50px"></div>
+    </su-col>
+  </su-row>
+</template>
+`
     }
   }
 };

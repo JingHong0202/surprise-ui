@@ -8,14 +8,16 @@
   $schemes: map.deep-merge(
     (
       $mode: (
-        colors: (
-          $type: (
-            '#{$mode}-#{$number}':
-              mix(
-                $mix-color,
-                map.get($colors, $type, 'base'),
-                math.percentage(math.div($number, 10))
-              )
+        public: (
+          colors: (
+            $type: (
+              '#{$mode}-#{$number}':
+                mix(
+                  $mix-color,
+                  map.get($colors, $type, base),
+                  math.percentage(math.div($number, 10))
+                )
+            )
           )
         )
       )
@@ -33,19 +35,19 @@
 }
 
 @mixin set-css-color-rgb($type, $themeName) {
-  $colorGroup: map.get($schemes, $themeName, colors, $type);
+  $colorGroup: map.get($schemes, $themeName, public, colors, $type);
   @for $i from 1 through 10 {
     $name: #{$themeName}- + $i;
     $color: map.get($colorGroup, $name);
     @if $color {
       @include set-css-var(
-        ('color', $type, $i),
+        (color, $type, $i),
         'rgb(#{red($color), green($color), blue($color)})'
       );
     } @else {
-      $colorBase: map.get($colorGroup, 'base');
+      $colorBase: map.get($colorGroup, base);
       @include set-css-var(
-        ('color', $type),
+        (color, $type),
         'rgb(#{red($colorBase), green($colorBase), blue($colorBase)})'
       );
     }
@@ -58,18 +60,16 @@
       @include set-css-var('color-white', white);
       @include set-css-var('color-black', #333);
       @include set-css-var('color-default', white);
-      @include set-css-var(
-        'border',
-        '1px solid ' + wrapVar('color', 'info', '6')
-      );
-      @include initColors(map.get($theme, 'colors'), $themeName);
+      @include set-css-var('border', '1px solid ' + wrapVar(color, info, 6));
+      $public: map.get($theme, public);
+      @include initColors(map.get($public, colors), $themeName);
       @each $type in $types {
         @include set-css-color-rgb($type, $themeName);
       }
     }
 
     @each $attrName, $attrVal in $theme {
-      @if $attrName != colors {
+      @if $attrName != public {
         @include bem($attrName) {
           @include set-component-css-var($attrName, $attrVal);
         }
@@ -78,9 +78,9 @@
   } @else {
     @include theme-bem($themeName) {
       @each $attrName, $attrVal in $theme {
-        @if $attrName == colors {
+        @if $attrName == public {
           // @debug $themeName, $attrName;
-          @include initColors($attrVal, $themeName);
+          @include initColors(map.get($attrVal, colors), $themeName);
           @each $type in $types {
             @include set-css-color-rgb($type, $themeName);
           }

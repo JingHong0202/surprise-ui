@@ -23,6 +23,7 @@ module.exports = {
 	},
 	rules: {
 		'vue/no-reserved-component-names': 'off',
+		"@typescript-eslint/no-unnecessary-type-assertion": "off",
 		'@typescript-eslint/no-non-null-assertion': 'off',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-unsafe-member-access': 'off',

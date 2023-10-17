@@ -1,4 +1,4 @@
-import { debounce } from '@packages/utils';
+import { debounce } from '@packages/utils/runtime/common';
 import { Directive } from 'vue';
 
 export const vResize: Directive<

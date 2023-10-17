@@ -84,7 +84,8 @@ const preview: Preview = {
       url:
         process.env.NODE_ENV === 'production'
           ? '/playroom'
-          : 'http://localhost:5173'
+          : 'http://localhost:5173',
+      iframe_allow: 'geolocation'
     },
     actions: { argTypesRegex: '^on.*' },
     controls: {

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { IconIfy } from '@ui/index';
-import { formattedVueTemplate } from '@packages/utils/index';
 
 // import
 const meta = {
@@ -37,9 +36,15 @@ export const online: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`<template>
-  <icon-ify online width='132' height='132' name="material-symbols:accessibility-new-rounded"/>
-</template>`)
+      code: `<template>
+  <icon-ify
+    online
+    width="132"
+    height="132"
+    name="material-symbols:accessibility-new-rounded"
+  />
+</template>
+`
     },
     docs: {
       description: {
@@ -67,8 +72,15 @@ export const offline: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`<template><icon-ify name="material-symbols:accessibility-new-rounded" :online='false' width=128 height=128 />
-      </template>`)
+      code: `<template
+  ><icon-ify
+    name="material-symbols:accessibility-new-rounded"
+    :online="false"
+    width="128"
+    height="128"
+  />
+</template>
+`
     }
   }
 };
@@ -96,13 +108,8 @@ export const offlineSvg: StoryObj<typeof meta> = {
   },
   parameters: {
     playroom: {
-      code: formattedVueTemplate(`
-<template>
-  <icon-ify
-    :name='iconData'
-    :width="128"
-    :height="128"
-  />
+      code: `<template>
+  <icon-ify :name="iconData" :width="128" :height="128" />
 </template>
 
 <script setup>
@@ -112,7 +119,7 @@ const iconData ={
       height: 24
     }
 </script>
-`)
+`
     }
   }
 };

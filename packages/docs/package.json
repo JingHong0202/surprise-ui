@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@jinghong/surprise-ui": "workspace:*",
+    "@storybook/addon-actions": "^7.0.11",
     "@storybook/addon-essentials": "7.0.11",
     "@storybook/addon-interactions": "7.0.11",
     "@storybook/addon-links": "7.0.11",
@@ -30,6 +31,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "7.0.11",
-    "storybook-addon-vue-playroom": "^0.0.12"
+    "storybook-addon-vue-playroom": "^0.0.13"
   }
 }
