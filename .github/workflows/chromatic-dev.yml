@@ -66,6 +66,7 @@ jobs:
           ls
           cp -r ../../../vue-playroom/packages/repl/playroom ./playroom
           ls
+          ls ./playroom
 
       - name: chromaui
         uses:
