@@ -6,20 +6,25 @@
     ".": {
       "import": "./dist/es/index.mjs",
       "require": "./dist/index.cjs",
-      "browser": "./dist/index.umd.js"
+      "browser": "./dist/index.umd.js",
+      "types": "./types/ui/index.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/utils/index.mjs",
+      "types": "./types/utils/index.d.ts"
     },
     "./style": "./dist/es/style.css",
     "./css": "./dist/es/style.css",
     "./es": "./dist/es/index.mjs",
     "./cjs": "./dist/index.cjs",
-    "./umd": "./dist/es/index.umd.js",
-    "./utils": "./dist/utils/index.mjs"
+    "./umd": "./dist/es/index.umd.js"
   },
   "style": "./dist/es/style.css",
-  "types": "./types/index.d.ts",
+  "types": "./types/ui/index.d.ts",
   "scripts": {
-    "build": "vite build -c ./configs/vite.config.ts",
+    "build:ui": "vite build -c ./configs/vite.config.ts",
     "build:utils": "vite build -c ./configs/vite-utils-config.ts",
+    "build": "pnpm build:ui && pnpm build:utils && pnpm build:type",
     "dev": "vite build --watch",
     "build:type": "rimraf ./types && vue-tsc  --declaration --emitDeclarationOnly --outDir ./types -p tsconfigs/tsconfig-ui-type.json",
     "lint": "eslint . --fix",

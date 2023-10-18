@@ -8,7 +8,7 @@
   "typeAcquisition": {
     "enable": true
   },
-  "include": ["../packages/ui"],
+  "include": ["../packages/ui", "../packages/utils"],
   "exclude": [
     "../scripts",
     "../packages/docs",

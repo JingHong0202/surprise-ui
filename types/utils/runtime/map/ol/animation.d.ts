@@ -1,0 +1,24 @@
+import Path, { Options } from 'ol-ext/featureanimation/Path.js';
+import { FeatureAnimationEvent, animationControler } from 'ol-ext/featureanimation/FeatureAnimation';
+import { Feature, Map } from 'ol';
+import { LineString } from 'ol/geom';
+import { Layer } from 'ol/layer';
+type animatePathArgs = {
+    map: Map;
+    layer: Layer;
+    pathFeature: Feature<LineString>;
+    pointFeature: Feature;
+    rotate?: number;
+    repeat?: number;
+    pathOptions?: Options;
+    reverse?: boolean;
+    autoFit?: boolean;
+    autoCenter?: boolean;
+    autoRotation?: boolean;
+    animatingCallback?: (e: FeatureAnimationEvent) => void;
+    animationStartCallback?: (e: FeatureAnimationEvent) => void;
+    animationEndCallback?: (e: FeatureAnimationEvent) => void;
+    updateController?: (controller: animationControler, animation: Path) => void;
+};
+export declare function animationPath({ map, layer, pathFeature, pointFeature, rotate, repeat, pathOptions, reverse, autoCenter, autoFit, autoRotation, animatingCallback, animationEndCallback, animationStartCallback, updateController }: animatePathArgs): Promise<animationControler>;
+export {};
