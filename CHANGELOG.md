@@ -1,6 +1,18 @@
 # 更新历史 
 
 
+### [0.0.2-beta.1](https://github.com/JingHong0202/test/compare/v0.0.2-beta.0...v0.0.2-beta.1) (2023-10-18)
+
+
+### ✨ Features | 新功能
+
+* **components:** add map component ([4648655](https://github.com/JingHong0202/test/commit/464865505e44c46d5f16b0c09f9526e95e1cfd00))
+
+
+### 📦 Chores | 其他更新
+
+* **config:** update types\& edit build command ([bcb9619](https://github.com/JingHong0202/test/commit/bcb9619ed8bc08886bd678ee94a4e08269f5d7c2))
+
 ### [0.0.2-beta.0](https://github.com/JingHong0202/test/compare/v0.0.1-beta...v0.0.2-beta.0) (2023-08-22)
 
 
