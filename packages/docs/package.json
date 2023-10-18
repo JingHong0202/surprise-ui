@@ -4,10 +4,10 @@
   "description": "surprise-ui docs",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build": "storybook build ",
     "chromatic": "chromatic --project-token=xxx --build-script-name=release",
     "cp:play": "cp -r ./playroom ",
-    "release": "npm-run-all --serial \"build -- {@} \" \"cp:play --  {2}\" --"
+    "release": "npm-run-all --serial \"build {@} \" \"cp:play --  {2}\" --"
   },
   "author": "",
   "license": "ISC",
