@@ -40,7 +40,7 @@ jobs:
           version: 8
           run_install: |
             - recursive: true
-
+            - args: [--update-lockfile]
       - name: 'cd StoryBook Docs Dir'
         shell: bash
         run: |
