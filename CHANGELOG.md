@@ -1,6 +1,18 @@
 # 更新历史 
 
 
+### [0.0.2-beta.3](https://github.com/JingHong0202/test/compare/v0.0.2-beta.2...v0.0.2-beta.3) (2023-10-19)
+
+
+### 📦 Chores | 其他更新
+
+* **config:** update lock file ([3249e06](https://github.com/JingHong0202/test/commit/3249e068848dc3c4d0cc7d9f6a378660da5b6b70))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **utils:** playroom fix ([f01c34f](https://github.com/JingHong0202/test/commit/f01c34fbfa5ebf31a8d93fdcccf631257e9f90b6))
+
 ### [0.0.2-beta.2](https://github.com/JingHong0202/test/compare/v0.0.2-beta.1...v0.0.2-beta.2) (2023-10-19)
 
 
