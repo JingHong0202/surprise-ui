@@ -3,3 +3,4 @@ import './theme/index.scss';
 export * from './components';
 // global
 export { install as default } from './global';
+export * from '../utils/index';

@@ -13,10 +13,7 @@
       "@root/*": ["./*"]
     },
     // "types": [
-    //   "unplugin-vue-define-options/macros-global",
-    //   "@types/node",
-    //   "vite/client",
-    //   "vitest/globals"
+    //  "types-ol-ext"
     // ],
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
@@ -25,6 +22,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true
     // "typeRoots": ["./node_modules/@types/", "./types"]
   },

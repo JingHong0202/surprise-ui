@@ -1,5 +1,5 @@
 {
-  "name": "surprise-cli",
+  "name": "@jinghong/surprise-cli",
   "version": "0.0.1",
   "description": "",
   "main": "lib/run.js",

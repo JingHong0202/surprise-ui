@@ -64,7 +64,7 @@ export const pathCode = `<template>
 
 <script setup>
 import { ref } from 'vue'
-import { animationPath } from 'surprise-ui/utils/runtime/map/ol/animation.mjs'
+import { animationPath } from 'surprise-ui'
 import { Icon, Style } from 'ol/style.js'
 import { Point } from 'ol/geom.js'
 import Feature from 'ol/Feature.js'

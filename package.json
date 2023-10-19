@@ -23,8 +23,7 @@
   "types": "./types/ui/index.d.ts",
   "scripts": {
     "build:ui": "vite build -c ./configs/vite.config.ts",
-    "build:utils": "vite build -c ./configs/vite-utils-config.ts",
-    "build": "pnpm build:ui && pnpm build:utils && pnpm build:type",
+    "build": "pnpm build:ui && pnpm build:type",
     "dev": "vite build --watch",
     "build:type": "rimraf ./types && vue-tsc  --declaration --emitDeclarationOnly --outDir ./types -p tsconfigs/tsconfig-ui-type.json",
     "lint": "eslint . --fix",
@@ -60,7 +59,6 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue/test-utils": "^2.3.2",
-    "@zougt/vite-plugin-theme-preprocessor": "^1.4.8",
     "chalk": "4.1.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
