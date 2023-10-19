@@ -1,6 +1,13 @@
 # 更新历史 
 
 
+### [0.0.2-beta.2](https://github.com/JingHong0202/test/compare/v0.0.2-beta.1...v0.0.2-beta.2) (2023-10-19)
+
+
+### 📦 Chores | 其他更新
+
+* **utils:** edit utils run and package name ([c295ea0](https://github.com/JingHong0202/test/commit/c295ea0d2eaf77977965f7973167646581bc15d5))
+
 ### [0.0.2-beta.1](https://github.com/JingHong0202/test/compare/v0.0.2-beta.0...v0.0.2-beta.1) (2023-10-18)
 
 
