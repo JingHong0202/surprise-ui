@@ -75,7 +75,7 @@
     "simple-git-hooks": "^2.8.1",
     "standard-changelog": "^2.0.27",
     "standard-version": "^9.5.0",
-    "surprise-cli": "workspace:*",
+    "@jinghong/surprise-cli": "workspace:*",
     "tsup": "^6.7.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4",
