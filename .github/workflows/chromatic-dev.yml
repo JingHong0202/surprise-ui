@@ -4,10 +4,10 @@
 name: 'Chromatic Publish'
 
 # Event for the workflow
-on: 
+on:
   push:
     branches:
-    - dev
+      - dev
 
 env:
   NODE_VERSION: '18.x'
@@ -40,7 +40,6 @@ jobs:
           version: 8
           run_install: |
             - recursive: true
-            - args: [--update-lockfile]
       - name: 'cd StoryBook Docs Dir'
         shell: bash
         run: |
