@@ -1,7 +1,7 @@
 import { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { SuMap, SuInteraction } from '@ui/index';
-import car from '@ui/components/su-map/src/static/car.png';
-import OlLayerSwitchControl from '@ui/components/su-map/src/vue-openlayers/OlLayerSwitcherControl.vue';
+import car from '@ui/components/map/src/static/car.png';
+import OlLayerSwitchControl from '@ui/components/map/src/vue-openlayers/OlLayerSwitcherControl.vue';
 import { animationPath } from '@packages/utils/runtime/map/ol/animation';
 import { Icon, Style } from 'ol/style';
 import { Point } from 'ol/geom';

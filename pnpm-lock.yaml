@@ -16,6 +16,9 @@ importers:
       ol-ext:
         specifier: ^4.0.11
         version: 4.0.11(ol@7.5.1)
+      ol-wind:
+        specifier: ^1.1.4
+        version: 1.1.4(ol@7.5.1)
     devDependencies:
       '@commitlint/cli':
         specifier: ^17.6.1
@@ -10856,6 +10859,15 @@ packages:
       ol: 7.5.1
     dev: false
 
+  /ol-wind@1.1.4(ol@7.5.1):
+    resolution: {integrity: sha512-/uHTtdmmYLO0KjcpKRT9KQqDGeOQ2GW8lw+bEtPo7cUH8/5oqlQEUKYPtL4GiRk2C2wDiancOsp27TRWZcdhWA==}
+    peerDependencies:
+      ol: '>=6.0.0'
+    dependencies:
+      ol: 7.5.1
+      wind-core: 1.1.3
+    dev: false
+
   /ol@7.5.1:
     resolution: {integrity: sha512-CFXDhO8YdQt7I+zwrGYSONo/ZM2oLr7vUvxqpLEUyy+USaQjUeE8L6FBOWIPboopGVhnSVYd5hdEirn9ifKBZQ==}
     dependencies:
@@ -13920,6 +13932,10 @@ packages:
     dependencies:
       string-width: 4.2.3
     dev: true
+
+  /wind-core@1.1.3:
+    resolution: {integrity: sha512-6Y6Nk/wUnns4Okriaw7qYhDpeztNjYGUvNe3ora7nHTlc8t2/ZKkjeUiJvx/K/C0zz2mKGpBmfoCakex0NW0dg==}
+    dev: false
 
   /with@7.0.2:
     resolution: {integrity: sha512-RNGKj82nUPg3g5ygxkQl0R937xLyho1J24ItRCBTr/m1YnZkzJy1hUiHUJrc/VlsDQzsCnInEGSg3bci0Lmd4w==}

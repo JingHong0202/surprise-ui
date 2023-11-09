@@ -1,12 +1,16 @@
 @use 'config';
-
+@use 'sass:list';
 @mixin set-css-var($name, $value) {
   #{join($name)}: #{$value};
 }
 
-@mixin set-component-css-var($name, $variables) {
-  @each $attr, $value in $variables {
-    #{getCssVarName($name, $attr)}: #{$value};
+@mixin set-css-vars($name, $variables) {
+  @if is-map($variables) {
+    @each $attr, $value in $variables {
+      #{getCssVarName($name, $attr)}: #{$value};
+    }
+  } @else {
+    #{getCssVarName($name)}: #{$variables};
   }
 }
 
@@ -18,6 +22,9 @@
     }
   }
   @return unquote($name);
+}
+@function is-map($var) {
+  @return type-of($var) == 'map';
 }
 
 @function getCssVarName($args...) {

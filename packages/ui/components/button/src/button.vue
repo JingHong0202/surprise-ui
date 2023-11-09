@@ -52,13 +52,15 @@ const props = withDefaults(
 @use 'sass:map';
 
 .su-button {
-  min-width: 90px;
-  min-height: 35px;
+  // min-width: 90px;
+  padding: wrapVar(padding-base);
+  // min-height: 35px;
   font-family: inherit;
-  border-radius: wrapVar(button-border-radius);
-  transition: all 150ms;
-  font-size: 15px;
+  border-radius: wrapVar(border-radius);
+  transition: wrapVar(transition);
+  font-size: wrapVar(font-base-size);
   font-weight: inherit;
+  letter-spacing: wrapVar(font-base-letter);
   border: wrapVar(border);
   cursor: pointer;
   background-color: wrapVar(color-default);
@@ -75,7 +77,7 @@ const props = withDefaults(
       // border: unquote('1px solid #{wrapVar( color- + $type + -5)}');
       &:hover,
       &:focus {
-        opacity: 0.7;
+        opacity: wrapVar(opacity);
       }
       &:active {
         box-shadow: 0 0 10px 5px wrapVar('color-' + $type + -7);
@@ -94,7 +96,7 @@ const props = withDefaults(
   }
   &[disabled] {
     cursor: not-allowed;
-    opacity: wrapVar(button-disabled-opacity);
+    opacity: wrapVar(disabled-opacity);
   }
 }
 </style>

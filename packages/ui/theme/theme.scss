@@ -60,18 +60,29 @@
       @include set-css-var('color-white', white);
       @include set-css-var('color-black', #333);
       @include set-css-var('color-default', white);
-      @include set-css-var('border', '1px solid ' + wrapVar(color, info, 6));
+      // @include set-css-var('border', '1px solid ' + wrapVar(color, info, 6));
       $public: map.get($theme, public);
-      @include initColors(map.get($public, colors), $themeName);
-      @each $type in $types {
-        @include set-css-color-rgb($type, $themeName);
+      @each $pubName, $pubAttr in $public {
+        @if $pubName == colors {
+          // @debug $pubAttr;
+          @include set-css-var(
+            'border',
+            '1px solid ' + wrapVar('color', 'info', '6')
+          );
+          @include initColors($pubAttr, $themeName);
+          @each $type in $types {
+            @include set-css-color-rgb($type, $themeName);
+          }
+        } @else {
+          @include set-css-vars($pubName, $pubAttr);
+        }
       }
     }
 
     @each $attrName, $attrVal in $theme {
       @if $attrName != public {
         @include bem($attrName) {
-          @include set-component-css-var($attrName, $attrVal);
+          @include set-css-vars($attrName, $attrVal);
         }
       }
     }
@@ -80,13 +91,20 @@
       @each $attrName, $attrVal in $theme {
         @if $attrName == public {
           // @debug $themeName, $attrName;
-          @include initColors(map.get($attrVal, colors), $themeName);
-          @each $type in $types {
-            @include set-css-color-rgb($type, $themeName);
+          @each $pubName, $pubAttr in $attrVal {
+            @if $pubName == colors {
+              // @debug $pubAttr;
+              @include initColors($pubAttr, $themeName);
+              @each $type in $types {
+                @include set-css-color-rgb($type, $themeName);
+              }
+            } @else {
+              @include set-css-vars($pubName, $pubAttr);
+            }
           }
         } @else {
           @include bem($attrName) {
-            @include set-component-css-var($attrName, $attrVal);
+            @include set-css-vars($attrName, $attrVal);
           }
         }
       }

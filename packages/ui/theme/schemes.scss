@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use './colors.scss' as *;
+@use './utils.scss' as *;
 
 $schemes: () !default;
 $schemes: (
@@ -28,14 +29,37 @@ $schemes: (
           base: #909399
         )
       ),
-      // fonts: (
-      //   default-size:
-      // )
+      font: (
+        base-size: 14px,
+        small-size: 13px,
+        large-size: 18px,
+        base-weight: 400,
+        small-weight: 0,
+        large-weight: 600,
+        base-letter: 1px,
+        semll-letter: 0,
+        large-letter: 2px
+      ),
+      border: '1px solid ' + wrapVar(color, info, 6),
+      border-radius: 5px,
+      // margin: (),
+      padding:
+        (
+          base: 10px,
+          small: 8px,
+          large: 15px
+        ),
+      transition: all 150ms,
+      opacity: 0.7,
+      disabled: (
+        opacity: 0.5
+      )
+      // box-shadow:
     ),
     button: (
-      border-radius: 4px,
+      // border-radius: 4px,
       color: $color-white,
-      disabled-opacity: 0.5,
+      // disabled-opacity: 0.5,
       round-radius: 35px
     )
   ),
