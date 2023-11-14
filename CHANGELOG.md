@@ -1,6 +1,13 @@
 # 更新历史 
 
 
+### [0.0.2-beta.5](https://github.com/JingHong0202/test/compare/v0.0.2-beta.4...v0.0.2-beta.5) (2023-11-14)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **components:** replace ref -\>  shallowRef from loading component ([6b5faf7](https://github.com/JingHong0202/test/commit/6b5faf7d9182562a73222d0cb64e64e5cb0aca44))
+
 ### [0.0.2-beta.4](https://github.com/JingHong0202/test/compare/v0.0.2-beta.3...v0.0.2-beta.4) (2023-11-14)
 
 
