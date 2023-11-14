@@ -1,6 +1,23 @@
 # 更新历史 
 
 
+### [0.0.2-beta.4](https://github.com/JingHong0202/test/compare/v0.0.2-beta.3...v0.0.2-beta.4) (2023-11-14)
+
+
+### 📝 Documentation | 文档
+
+* **components:** update types ([6171cda](https://github.com/JingHong0202/test/commit/6171cda6fe8ead48afe00e50c9bf043ebcdd4290))
+
+
+### ♻ Code Refactoring | 代码重构
+
+* **components:** map rename ([4fdcaf4](https://github.com/JingHong0202/test/commit/4fdcaf4fa7bd1cc5121a12da0c4eafee0cf9116f))
+
+
+### ✨ Features | 新功能
+
+* **components:** add mask loading components ([2acf9ae](https://github.com/JingHong0202/test/commit/2acf9ae28768991025d5e911b6d4ac6e9db6bc78))
+
 ### [0.0.2-beta.3](https://github.com/JingHong0202/test/compare/v0.0.2-beta.2...v0.0.2-beta.3) (2023-10-19)
 
 
