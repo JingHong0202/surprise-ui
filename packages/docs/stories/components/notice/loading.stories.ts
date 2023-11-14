@@ -62,7 +62,7 @@ export const all: StoryObj<typeof meta> = {
         return { args };
       },
       components: { SuLoading },
-      template: `<div style="display:flex;flex-wrap:wrap"><su-loading  v-for='num in 117'  :type="+num" style="width:150px;height:150px;margin:0 10px 20px 20px" v-bind="args">${args.default}</su-loading></div>`
+      template: `<div style="display:flex;flex-wrap:wrap;height: 100vh;overflow: auto;"><su-loading  v-for='num in 117'  :type="+num" style="width:150px;height:150px;margin:0 10px 20px 20px" v-bind="args">${args.default}</su-loading></div>`
     };
   },
   args: {

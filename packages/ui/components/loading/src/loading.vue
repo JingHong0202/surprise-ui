@@ -14,10 +14,10 @@
 
 <script lang="ts" setup>
 import { SuMask } from '../../mask';
-import { StyleValue, ref, onMounted } from 'vue';
+import { StyleValue, onMounted, shallowRef } from 'vue';
 defineOptions({ name: 'su-loading' });
 
-const loading = ref();
+let loading = shallowRef();
 const props = withDefaults(
   defineProps<{
     /**
