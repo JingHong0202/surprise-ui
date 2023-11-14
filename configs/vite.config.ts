@@ -57,7 +57,7 @@ export default defineConfig({
           preserveModulesRoot: './packages/ui',
           format: 'es',
           dir: 'dist/es'
-        },
+        }
         // {
         //   entryFileNames: '[name].mjs',
         //   preserveModules: true,
@@ -65,22 +65,22 @@ export default defineConfig({
         //   format: 'es',
         //   dir: 'dist/utils'
         // },
-        {
-          entryFileNames: 'index.umd.js',
-          format: 'umd',
-          name: 'surprise_ui',
-          dir: 'dist',
-          exports: 'named',
-          globals: {
-            vue: 'Vue'
-          }
-        },
-        {
-          entryFileNames: 'index.cjs',
-          format: 'cjs',
-          dir: 'dist',
-          exports: 'named'
-        }
+        // {
+        //   entryFileNames: 'index.umd.js',
+        //   format: 'umd',
+        //   name: 'surprise_ui',
+        //   dir: 'dist',
+        //   exports: 'named',
+        //   globals: {
+        //     vue: 'Vue'
+        //   }
+        // },
+        // {
+        //   entryFileNames: 'index.cjs',
+        //   format: 'cjs',
+        //   dir: 'dist',
+        //   exports: 'named'
+        // }
       ],
       external: [
         'vue',

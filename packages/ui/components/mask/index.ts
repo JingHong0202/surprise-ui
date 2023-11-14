@@ -1,3 +1,3 @@
 import { default as o } from './src/mask.vue';
 import { compInstall } from '@ui/utils/export';
-export const Mask = /*@__PURE__*/ compInstall(o);
+export const SuMask = /*@__PURE__*/ compInstall(o);
