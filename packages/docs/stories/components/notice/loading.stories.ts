@@ -75,7 +75,7 @@ export const all: StoryObj<typeof meta> = {
   parameters: {
     playroom: {
       code: `<template>
-  <div style="display: flex; flex-wrap: wrap"
+  <div style="display: flex; flex-wrap: wrap;height: 100vh;overflow: auto;"
     ><su-loading
       v-for="num in 117"
       :type="+num"
