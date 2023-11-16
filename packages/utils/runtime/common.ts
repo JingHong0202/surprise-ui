@@ -28,3 +28,9 @@ export function throttle(
     func && func.apply(this, args);
   };
 }
+
+// 节流
+/*@__NO_SIDE_EFFECTS__*/
+export function getProtoType(arg: any) {
+  return Object.prototype.toString.call(arg);
+}

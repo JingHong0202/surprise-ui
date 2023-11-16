@@ -1,4 +1,5 @@
-export declare const SuLoading: {
+import { service } from './src/service';
+declare const SuLoading: ({
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
         $data: {};
@@ -483,4 +484,7 @@ export declare const SuLoading: {
 }, {}, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: Partial<Record<"default", (_: {}) => any>>;
     $props: {};
-}) & import("vue").Plugin;
+}) & import("vue").Plugin) & {
+    service: typeof service;
+};
+export { SuLoading };
