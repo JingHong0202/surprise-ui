@@ -1,6 +1,18 @@
 # 更新历史 
 
 
+### [0.0.2-beta.6](https://github.com/JingHong0202/test/compare/v0.0.2-beta.5...v0.0.2-beta.6) (2024-01-02)
+
+
+### 📝 Documentation | 文档
+
+* **components:** update loading playroom ([b2c2882](https://github.com/JingHong0202/test/commit/b2c2882759d88f54a13341c4423e1c2135344628))
+
+
+### ✨ Features | 新功能
+
+* **components:** add loading directive and functional ([1ce1d7b](https://github.com/JingHong0202/test/commit/1ce1d7b4ab3a882a9fd8def21dfae413f23213c6))
+
 ### [0.0.2-beta.5](https://github.com/JingHong0202/test/compare/v0.0.2-beta.4...v0.0.2-beta.5) (2023-11-14)
 
 
